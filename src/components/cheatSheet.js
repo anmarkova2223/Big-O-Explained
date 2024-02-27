@@ -22,10 +22,12 @@ export function plotComplexities() {
       .range([innerHeight, 0]);
 
     const xAxis = d3.axisBottom(xScale)
-      .ticks(5);
+        .tickFormat("") // This removes the tick labels
+        .tickSize(0);   // This removes the tick marks
 
     const yAxis = d3.axisLeft(yScale)
-      .ticks(5);
+        .tickFormat("") // This removes the tick labels
+        .tickSize(0);   // This removes the tick marks
 
     svg.append("g")
       .attr("transform", `translate(${margin.left}, ${innerHeight + margin.top})`)
@@ -34,6 +36,19 @@ export function plotComplexities() {
     svg.append("g")
       .attr("transform", `translate(${margin.left}, ${margin.top})`)
       .call(yAxis);
+
+    // X Axis Label
+    svg.append("text")
+        .attr("transform", `translate(${margin.left + innerWidth / 2},${innerHeight + margin.top + 20})`)
+        .style("text-anchor", "middle")
+        .text("Elements");
+
+    // Y Axis Label
+    svg.append("text")
+        .attr("transform", `translate(${margin.left - 20},${margin.top + innerHeight / 2}) rotate(-90)`)
+        .style("text-anchor", "middle")
+        .text("Operations");
+
 
     const g = svg.append("g")
       .attr("transform", `translate(${margin.left}, ${margin.top})`);
@@ -272,18 +287,18 @@ export function plotComplexities() {
     const colors = ["steelblue", "steelblue", "yellow", "orange", "red", "red", "red"];
 
     lines.forEach((line, index) => {
-      const labelRect = labelRects[index];
-      const label = labels[index];
-      line.on('mouseover', () => {
-        line.attr('stroke-width', 4).attr('stroke', 'black');
-        labelRect.attr('opacity', 0.5).attr('fill', colors[index]);
-        label.attr('fill', 'black');
+        const labelRect = labelRects[index];
+        const label = labels[index];
+        line.on('mouseenter', () => {
+          line.attr('stroke-width', 4).attr('stroke', 'black');
+          labelRect.attr('opacity', 0.5).attr('fill', colors[index]);
+          label.attr('fill', 'black');
+        });
+      
+        line.on('mouseleave', () => {
+          line.attr('stroke-width', 2).attr('stroke', colors[index]);
+          labelRect.attr('opacity', 0);
+          label.attr('fill', 'black');
+        });
       });
-
-      line.on('mouseout', () => {
-        line.attr('stroke-width', 2).attr('stroke', colors[index]);
-        labelRect.attr('opacity', 0);
-        label.attr('fill', 'black');
-      });
-    });
-  }
+    }
