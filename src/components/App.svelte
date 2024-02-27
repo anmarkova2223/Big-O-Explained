@@ -47,6 +47,39 @@
       .attr("width", innerWidth)
       .attr("height", innerHeight);
 
+    // Label for color meanings
+    const colorLegendGroup = svg.append("g")
+      .attr("transform", "translate(10, 10)");
+
+    const colorData = [
+      { color: "red", text: "Horrible" },
+      { color: "orange", text: "Bad" },
+      { color: "yellow", text: "Fair" },
+      { color: "steelblue", text: "Good" }
+    ];
+
+    const legendItems = colorLegendGroup.selectAll("g")
+      .data(colorData)
+      .enter().append("g")
+      .attr("transform", (d, i) => "translate(0, " + (i * 20) + ")");
+
+    legendItems.append("rect")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", 10)
+      .attr("height", 10)
+      .attr("fill", d => d.color);
+
+    legendItems.append("text")
+      .attr("x", 15)
+      .attr("y", 10)
+      .text(d => d.text)
+      .attr("fill", "black")
+      .attr("font-size", 12);
+
+    // Move the colorLegendGroup to a new position
+    colorLegendGroup.attr("transform", "translate(825, 50)");
+
     // O(1) line
     const o1Line = g.append("line")
       .attr("x1", xScale(0))
@@ -257,6 +290,7 @@
     });
   }
 
+  
   onMount(() => {
     plotComplexities();
   });
