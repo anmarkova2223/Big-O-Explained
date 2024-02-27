@@ -141,13 +141,13 @@
       .attr("clip-path", "url(#clip)");
 
     g.append("text")
-      .attr("x", 100)
-      .attr("y", -10)
+      .attr("x", 115)
+      .attr("y", -30)
       .text("O(2^n)")
 
     // O(n!) line
     g.append("path")
-      .datum(d3.range(1, 11))
+      .datum(d3.range(0, 5))
       .attr("fill", "none")
       .attr("stroke", "brown")
       .attr("stroke-width", 2)
@@ -159,8 +159,8 @@
       .attr("clip-path", "url(#clip)");
 
     g.append("text")
-      .attr("x", 10)
-      .attr("y", 10)
+      .attr("x", 100)
+      .attr("y", - 10)
       .text("O(n!)")
 
     // Helper function for factorial
@@ -175,4 +175,4 @@
   });
 </script>
 
-<svg id="plot" width="800" height="600"></svg>
+<svg id="plot" width="900" height="600"></svg>
