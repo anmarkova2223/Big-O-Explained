@@ -48,7 +48,7 @@
       .attr("height", innerHeight);
 
     // O(1) line
-    g.append("line")
+    const o1Line = g.append("line")
       .attr("x1", xScale(0))
       .attr("y1", yScale(1))
       .attr("x2", xScale(plotSize))
@@ -57,13 +57,22 @@
       .attr("stroke-width", 2)
       .attr("clip-path", "url(#clip)");
 
-    g.append("text")
+    const o1LabelRect = g.append("rect")
+      .attr("x", xScale(plotSize) + 5)
+      .attr("y", yScale(1) - 10)
+      .attr("width", 40) // Adjust width here
+      .attr("height", 20) // Adjust height here
+      .attr("fill", "steelblue")
+      .attr("opacity", 0); // Initially invisible
+
+    const o1Label = g.append("text")
       .attr("x", xScale(plotSize) + 10)
       .attr("y", yScale(1) + 5)
       .text("O(1)")
+      .attr("fill", "black");
 
     // O(log n) line
-    g.append("path")
+    const oLogNLine = g.append("path")
       .datum(d3.range(1, plotSize + 1))
       .attr("fill", "none")
       .attr("stroke", "steelblue")
@@ -74,13 +83,22 @@
       )
       .attr("clip-path", "url(#clip)");
 
-    g.append("text")
+    const oLogNLabelRect = g.append("rect")
+      .attr("x", xScale(plotSize) + 5)
+      .attr("y", yScale(Math.log(plotSize)) - 15)
+      .attr("width", 68) // Adjust width here
+      .attr("height", 20) // Adjust height here
+      .attr("fill", "steelblue")
+      .attr("opacity", 0); // Initially invisible
+
+    const oLogNLabel = g.append("text")
       .attr("x", xScale(plotSize) + 10)
-      .attr("y", yScale(Math.log(plotSize)) - 10)
+      .attr("y", yScale(Math.log(plotSize)))
       .text("O(log n)")
+      .attr("fill", "black");
 
     // O(n) line
-    g.append("line")
+    const oNLine = g.append("line")
       .attr("x1", xScale(0))
       .attr("y1", yScale(0))
       .attr("x2", xScale(plotSize))
@@ -89,13 +107,22 @@
       .attr("stroke-width", 2)
       .attr("clip-path", "url(#clip)");
 
-    g.append("text")
+    const oNLabelRect = g.append("rect")
+      .attr("x", xScale(plotSize))
+      .attr("y", yScale(plotSize) - 20)
+      .attr("width", 50) // Adjust width here
+      .attr("height", 20) // Adjust height here
+      .attr("fill", "yellow")
+      .attr("opacity", 0); // Initially invisible
+
+    const oNLabel = g.append("text")
       .attr("x", xScale(plotSize) + 10)
       .attr("y", yScale(plotSize) - 5)
       .text("O(n)")
+      .attr("fill", "black");
 
     // O(n log n) line
-    g.append("path")
+    const oNLogNLine = g.append("path")
       .datum(d3.range(1, plotSize + 1))
       .attr("fill", "none")
       .attr("stroke", "orange")
@@ -106,13 +133,22 @@
       )
       .attr("clip-path", "url(#clip)");
 
-    g.append("text")
+    const oNLogNLabelRect = g.append("rect")
+      .attr("x", 292.5)
+      .attr("y", -25)
+      .attr("width", 80) // Adjust width here
+      .attr("height", 20) // Adjust height here
+      .attr("fill", "orange")
+      .attr("opacity", 0); // Initially invisible
+
+    const oNLogNLabel = g.append("text")
       .attr("x", 300)
       .attr("y", -10)
       .text("O(n log n)")
+      .attr("fill", "black");
 
     // O(n^2) line
-    g.append("path")
+    const oNSquaredLine = g.append("path")
       .datum(d3.range(0, plotSize + 1))
       .attr("fill", "none")
       .attr("stroke", "red")
@@ -124,13 +160,22 @@
       )
       .attr("clip-path", "url(#clip)");
 
-    g.append("text")
-      .attr("x", 120)
+    const oNSquaredLabelRect = g.append("rect")
+      .attr("x", 125)
+      .attr("y", -25)
+      .attr("width", 55) // Adjust width here
+      .attr("height", 20) // Adjust height here
+      .attr("fill", "red")
+      .attr("opacity", 0); // Initially invisible
+
+    const oNSquaredLabel = g.append("text")
+      .attr("x", 130)
       .attr("y", -10)
       .text("O(n^2)")
+      .attr("fill", "black");
 
     // O(2^n) line
-    g.append("path")
+    const oTwoNLine = g.append("path")
       .datum(d3.range(0, plotSize + 1))
       .attr("fill", "none")
       .attr("stroke", "red")
@@ -142,13 +187,22 @@
       )
       .attr("clip-path", "url(#clip)");
 
-    g.append("text")
-      .attr("x", 100)
+    const oTwoNLabelRect = g.append("rect")
+      .attr("x", 102.5)
+      .attr("y", -45)
+      .attr("width", 60) // Adjust width here
+      .attr("height", 20) // Adjust height here
+      .attr("fill", "red")
+      .attr("opacity", 0); // Initially invisible
+
+    const oTwoNLabel = g.append("text")
+      .attr("x", 110)
       .attr("y", -30)
       .text("O(2^n)")
+      .attr("fill", "black");
 
     // O(n!) line
-    g.append("path")
+    const oNFactorialLine = g.append("path")
       .datum(d3.range(0, 7))
       .attr("fill", "none")
       .attr("stroke", "red")
@@ -160,16 +214,47 @@
       )
       .attr("clip-path", "url(#clip)");
 
-    g.append("text")
-      .attr("x", 70)
+    const oNFactorialLabelRect = g.append("rect")
+      .attr("x", 75)
+      .attr("y", - 25)
+      .attr("width", 45) // Adjust width here
+      .attr("height", 20) // Adjust height here
+      .attr("fill", "red")
+      .attr("opacity", 0); // Initially invisible
+
+    const oNFactorialLabel = g.append("text")
+      .attr("x", 80)
       .attr("y", - 10)
       .text("O(n!)")
+      .attr("fill", "black");
 
     // Helper function for factorial
     function factorial(n) {
       if (n === 0 || n === 1) return 1;
       return n * factorial(n - 1);
     }
+
+    // Handle hover events
+    const lines = [o1Line, oLogNLine, oNLine, oNLogNLine, oNSquaredLine, oTwoNLine, oNFactorialLine];
+    const labelRects = [o1LabelRect, oLogNLabelRect, oNLabelRect, oNLogNLabelRect, oNSquaredLabelRect, oTwoNLabelRect, oNFactorialLabelRect];
+    const labels = [o1Label, oLogNLabel, oNLabel, oNLogNLabel, oNSquaredLabel, oTwoNLabel, oNFactorialLabel];
+    const colors = ["steelblue", "steelblue", "yellow", "orange", "red", "red", "red"];
+
+    lines.forEach((line, index) => {
+      const labelRect = labelRects[index];
+      const label = labels[index];
+      line.on('mouseover', () => {
+        line.attr('stroke-width', 4).attr('stroke', 'black');
+        labelRect.attr('opacity', 0.5).attr('fill', colors[index]);
+        label.attr('fill', 'black');
+      });
+
+      line.on('mouseout', () => {
+        line.attr('stroke-width', 2).attr('stroke', colors[index]);
+        labelRect.attr('opacity', 0);
+        label.attr('fill', 'black');
+      });
+    });
   }
 
   onMount(() => {
