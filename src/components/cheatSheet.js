@@ -287,6 +287,3 @@ export function plotComplexities() {
       });
     });
   }
-
-
-<svg id="plot" width="900" height="600"></svg>
