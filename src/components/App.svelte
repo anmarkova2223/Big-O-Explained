@@ -133,6 +133,25 @@
       .attr("text-anchor", "end")
       .text("O(n^2)");
 
+    // Plotting O(2^n) line
+    const twoNLine = g.append("path")
+      .datum(d3.range(1, 11)) // Limiting to 10 points for clarity
+      .attr("fill", "none")
+      .attr("stroke", "brown")
+      .attr("stroke-width", 2)
+      .attr("d", d3.line()
+        .x(d => xScale(d))
+        .y(d => yScale(2 ** d)) // Using 2^n as y value
+      )
+      .attr("clip-path", "url(#clip)");
+    
+    // Label for O(2^n) line
+    g.append("text")
+      .attr("x", 60)
+      .attr("y", -10) // Above the clipped area
+      .attr("text-anchor", "end")
+      .text("O(2^n)");
+
     // Clip path
     svg.append("defs").append("clipPath")
       .attr("id", "clip")
