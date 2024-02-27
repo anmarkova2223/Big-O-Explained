@@ -1,6 +1,6 @@
 # Big O Explained Project
 
-This repo contains code using Javascript, Svelte, D3, and HTML to create a <a href = "https://zoeludena.github.io/Big-O-Explained/">GitHub</a> page that will explain Big O notation. This is the final project for DSC 106 at UCSD. DSC 106 is a class about data visualizations. This course introduces the principles, techniques, and algorithms for creating effective data visualizations. The class also touched on computer graphics, human-computer interaction, cognitive psychology, design, statistical graphics, and synthesis relevant ideas.
+This repo contains code using Javascript, Svelte, D3, and HTML to create a <a href = "https://zoeludena.github.io/Big-O-Explained/">GitHub page</a> that will explain Big O notation. This is the final project for DSC 106 at UCSD. DSC 106 is a class about data visualizations. This course introduces the principles, techniques, and algorithms for creating effective data visualizations. The class also touched on computer graphics, human-computer interaction, cognitive psychology, design, statistical graphics, and synthesis relevant ideas.
 
 # Our team: Graphic Girls
 
