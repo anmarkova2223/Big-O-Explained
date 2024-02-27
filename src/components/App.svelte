@@ -13,14 +13,14 @@
     const svg = d3.select('#plot');
     svg.selectAll("*").remove();
 
-    const plotSize = 25;
+    const plotSize = 28;
 
     const xScale = d3.scaleLinear()
-      .domain([0, 20])
+      .domain([0, plotSize])
       .range([0, innerWidth]);
 
     const yScale = d3.scaleLinear()
-      .domain([0, 20])
+      .domain([0, plotSize])
       .range([innerHeight, 0]);
 
     const xAxis = d3.axisBottom(xScale)
@@ -51,20 +51,20 @@
     g.append("line")
       .attr("x1", xScale(0))
       .attr("y1", yScale(1))
-      .attr("x2", xScale(20))
+      .attr("x2", xScale(plotSize))
       .attr("y2", yScale(1))
       .attr("stroke", "steelblue")
       .attr("stroke-width", 2)
       .attr("clip-path", "url(#clip)");
 
     g.append("text")
-      .attr("x", xScale(20) + 10)
+      .attr("x", xScale(plotSize) + 10)
       .attr("y", yScale(1) + 5)
       .text("O(1)")
 
     // O(log n) line
     g.append("path")
-      .datum(d3.range(1, 21))
+      .datum(d3.range(1, plotSize + 1))
       .attr("fill", "none")
       .attr("stroke", "steelblue")
       .attr("stroke-width", 2)
@@ -75,28 +75,28 @@
       .attr("clip-path", "url(#clip)");
 
     g.append("text")
-      .attr("x", xScale(20) + 10)
-      .attr("y", yScale(Math.log(20)) - 10)
+      .attr("x", xScale(plotSize) + 10)
+      .attr("y", yScale(Math.log(plotSize)) - 10)
       .text("O(log n)")
 
     // O(n) line
     g.append("line")
       .attr("x1", xScale(0))
       .attr("y1", yScale(0))
-      .attr("x2", xScale(20))
-      .attr("y2", yScale(20))
+      .attr("x2", xScale(plotSize))
+      .attr("y2", yScale(plotSize))
       .attr("stroke", "yellow")
       .attr("stroke-width", 2)
       .attr("clip-path", "url(#clip)");
 
     g.append("text")
-      .attr("x", xScale(20) + 10)
-      .attr("y", yScale(20) - 5)
+      .attr("x", xScale(plotSize) + 10)
+      .attr("y", yScale(plotSize) - 5)
       .text("O(n)")
 
     // O(n log n) line
     g.append("path")
-      .datum(d3.range(1, 21))
+      .datum(d3.range(1, plotSize + 1))
       .attr("fill", "none")
       .attr("stroke", "orange")
       .attr("stroke-width", 2)
@@ -113,7 +113,7 @@
 
     // O(n^2) line
     g.append("path")
-      .datum(d3.range(0, 21))
+      .datum(d3.range(0, plotSize + 1))
       .attr("fill", "none")
       .attr("stroke", "red")
       .attr("stroke-width", 2)
@@ -125,13 +125,13 @@
       .attr("clip-path", "url(#clip)");
 
     g.append("text")
-      .attr("x", 150)
+      .attr("x", 120)
       .attr("y", -10)
       .text("O(n^2)")
 
     // O(2^n) line
     g.append("path")
-      .datum(d3.range(0, 21))
+      .datum(d3.range(0, plotSize + 1))
       .attr("fill", "none")
       .attr("stroke", "red")
       .attr("stroke-width", 2)
@@ -143,13 +143,13 @@
       .attr("clip-path", "url(#clip)");
 
     g.append("text")
-      .attr("x", 115)
+      .attr("x", 100)
       .attr("y", -30)
       .text("O(2^n)")
 
     // O(n!) line
     g.append("path")
-      .datum(d3.range(0, 5))
+      .datum(d3.range(0, 7))
       .attr("fill", "none")
       .attr("stroke", "red")
       .attr("stroke-width", 2)
@@ -161,7 +161,7 @@
       .attr("clip-path", "url(#clip)");
 
     g.append("text")
-      .attr("x", 100)
+      .attr("x", 70)
       .attr("y", - 10)
       .text("O(n!)")
 
