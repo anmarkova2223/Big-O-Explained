@@ -13,6 +13,8 @@
     const svg = d3.select('#plot');
     svg.selectAll("*").remove();
 
+    const plotSize = 25;
+
     const xScale = d3.scaleLinear()
       .domain([0, 20])
       .range([0, innerWidth]);
@@ -64,7 +66,7 @@
     g.append("path")
       .datum(d3.range(1, 21))
       .attr("fill", "none")
-      .attr("stroke", "green")
+      .attr("stroke", "steelblue")
       .attr("stroke-width", 2)
       .attr("d", d3.line()
         .x(d => xScale(d))
@@ -83,7 +85,7 @@
       .attr("y1", yScale(0))
       .attr("x2", xScale(20))
       .attr("y2", yScale(20))
-      .attr("stroke", "red")
+      .attr("stroke", "yellow")
       .attr("stroke-width", 2)
       .attr("clip-path", "url(#clip)");
 
@@ -113,7 +115,7 @@
     g.append("path")
       .datum(d3.range(0, 21))
       .attr("fill", "none")
-      .attr("stroke", "purple")
+      .attr("stroke", "red")
       .attr("stroke-width", 2)
       .attr("d", d3.line()
         .x(d => xScale(d))
@@ -131,7 +133,7 @@
     g.append("path")
       .datum(d3.range(0, 21))
       .attr("fill", "none")
-      .attr("stroke", "pink")
+      .attr("stroke", "red")
       .attr("stroke-width", 2)
       .attr("d", d3.line()
         .x(d => xScale(d))
@@ -149,7 +151,7 @@
     g.append("path")
       .datum(d3.range(0, 5))
       .attr("fill", "none")
-      .attr("stroke", "brown")
+      .attr("stroke", "red")
       .attr("stroke-width", 2)
       .attr("d", d3.line()
         .x(d => xScale(d))
