@@ -5,14 +5,22 @@ export function plotComplexities(targetElementId) {
     const targetDiv = document.getElementById(targetElementId);
 
     // Define SVG container dimensions
-    const containerWidth = 1000; // New width
-    const containerHeight = 800; // New height
+    const containerWidth = 900; // New width
+    const containerHeight = 600; // New height
 
     // Update SVG container dimensions
     const svg = d3.select(targetDiv)
         .append("svg")
         .attr("width", containerWidth)
         .attr("height", containerHeight);
+
+    // Background color
+    // svg.append("rect")
+    //   .attr("x", 0)
+    //   .attr("y", -10)
+    //   .attr("width", containerWidth)
+    //   .attr("height", containerHeight)
+    //   .attr("fill", "#CCCCCC"); // Adjust the fill color as desired
 
     // Keep inner dimensions unchanged
     const width = 800; // Inner width
@@ -84,10 +92,10 @@ export function plotComplexities(targetElementId) {
     .attr("transform", `translate(${innerWidth + margin.left + 55}, ${margin.top + 50})`); // Adjusted positioning
 
     const colorData = [
-    { color: "red", text: "Horrible" },
-    { color: "orange", text: "Bad" },
-    { color: "yellow", text: "Fair" },
-    { color: "steelblue", text: "Good" }
+    { color: "#CC0000", text: "Horrible" },
+    { color: "#FF6600", text: "Bad" },
+    { color: "#FFCC00", text: "Fair" },
+    { color: "#6699FF", text: "Good" }
     ];
 
     const legendItems = colorLegendGroup.selectAll("g")
@@ -115,7 +123,7 @@ export function plotComplexities(targetElementId) {
       .attr("y1", yScale(1))
       .attr("x2", xScale(plotSize))
       .attr("y2", yScale(1))
-      .attr("stroke", "steelblue")
+      .attr("stroke", "#6699FF")
       .attr("stroke-width", 2)
       .attr("clip-path", "url(#clip)");
 
@@ -124,7 +132,7 @@ export function plotComplexities(targetElementId) {
       .attr("y", yScale(1) - 10)
       .attr("width", 40) // Adjust width here
       .attr("height", 20) // Adjust height here
-      .attr("fill", "steelblue")
+      .attr("fill", "#6699FF")
       .attr("opacity", 0); // Initially invisible
 
     const o1Label = g.append("text")
@@ -137,7 +145,7 @@ export function plotComplexities(targetElementId) {
     const oLogNLine = g.append("path")
       .datum(d3.range(1, plotSize + 1))
       .attr("fill", "none")
-      .attr("stroke", "steelblue")
+      .attr("stroke", "#6699FF")
       .attr("stroke-width", 2)
       .attr("d", d3.line()
         .x(d => xScale(d))
@@ -147,11 +155,11 @@ export function plotComplexities(targetElementId) {
 
     // O(log n) label
     const oLogNLabelRect = g.append("rect")
-        .attr("x", xScale(plotSize) + 5)
+        .attr("x", xScale(plotSize) + 7)
         .attr("y", yScale(Math.log(plotSize)) - 10) // Adjusted y position
-        .attr("width", 68)
+        .attr("width", 60)
         .attr("height", 20)
-        .attr("fill", "steelblue")
+        .attr("fill", "#6699FF")
         .attr("opacity", 0); // Initially invisible
 
     const oLogNLabel = g.append("text")
@@ -166,16 +174,16 @@ export function plotComplexities(targetElementId) {
       .attr("y1", yScale(0))
       .attr("x2", xScale(plotSize))
       .attr("y2", yScale(plotSize))
-      .attr("stroke", "yellow")
+      .attr("stroke", "#FFCC00")
       .attr("stroke-width", 2)
       .attr("clip-path", "url(#clip)");
 
     const oNLabelRect = g.append("rect")
-      .attr("x", xScale(plotSize))
+      .attr("x", xScale(plotSize) + 5)
       .attr("y", yScale(plotSize) - 20)
-      .attr("width", 50) // Adjust width here
+      .attr("width", 40) // Adjust width here
       .attr("height", 20) // Adjust height here
-      .attr("fill", "yellow")
+      .attr("fill", "#FFCC00")
       .attr("opacity", 0); // Initially invisible
 
     const oNLabel = g.append("text")
@@ -188,7 +196,7 @@ export function plotComplexities(targetElementId) {
     const oNLogNLine = g.append("path")
       .datum(d3.range(1, plotSize + 1))
       .attr("fill", "none")
-      .attr("stroke", "orange")
+      .attr("stroke", "#FF6600")
       .attr("stroke-width", 2)
       .attr("d", d3.line()
         .x(d => xScale(d))
@@ -197,15 +205,15 @@ export function plotComplexities(targetElementId) {
       .attr("clip-path", "url(#clip)");
 
     const oNLogNLabelRect = g.append("rect")
-      .attr("x", 292.5)
+      .attr("x", 240)
       .attr("y", -25)
       .attr("width", 80) // Adjust width here
       .attr("height", 20) // Adjust height here
-      .attr("fill", "orange")
+      .attr("fill", "#FF6600")
       .attr("opacity", 0); // Initially invisible
 
     const oNLogNLabel = g.append("text")
-      .attr("x", 300)
+      .attr("x", 248)
       .attr("y", -10)
       .text("O(n log n)")
       .attr("fill", "black");
@@ -214,7 +222,7 @@ export function plotComplexities(targetElementId) {
     const oNSquaredLine = g.append("path")
       .datum(d3.range(0, plotSize + 1))
       .attr("fill", "none")
-      .attr("stroke", "red")
+      .attr("stroke", "#CC0000")
       .attr("stroke-width", 2)
       .attr("d", d3.line()
         .x(d => xScale(d))
@@ -224,15 +232,15 @@ export function plotComplexities(targetElementId) {
       .attr("clip-path", "url(#clip)");
 
     const oNSquaredLabelRect = g.append("rect")
-      .attr("x", 125)
+      .attr("x", 138)
       .attr("y", -25)
-      .attr("width", 55) // Adjust width here
+      .attr("width", 50) // Adjust width here
       .attr("height", 20) // Adjust height here
-      .attr("fill", "red")
+      .attr("fill", "#CC0000")
       .attr("opacity", 0); // Initially invisible
 
     const oNSquaredLabel = g.append("text")
-      .attr("x", 130)
+      .attr("x", 140)
       .attr("y", -10)
       .text("O(n^2)")
       .attr("fill", "black");
@@ -241,7 +249,7 @@ export function plotComplexities(targetElementId) {
     const oTwoNLine = g.append("path")
       .datum(d3.range(0, plotSize + 1))
       .attr("fill", "none")
-      .attr("stroke", "red")
+      .attr("stroke", "#CC0000")
       .attr("stroke-width", 2)
       .attr("d", d3.line()
         .x(d => xScale(d))
@@ -251,16 +259,16 @@ export function plotComplexities(targetElementId) {
       .attr("clip-path", "url(#clip)");
 
     const oTwoNLabelRect = g.append("rect")
-      .attr("x", 102.5)
-      .attr("y", -45)
-      .attr("width", 60) // Adjust width here
+      .attr("x", 88)
+      .attr("y", -25)
+      .attr("width", 50) // Adjust width here
       .attr("height", 20) // Adjust height here
-      .attr("fill", "red")
+      .attr("fill", "#CC0000")
       .attr("opacity", 0); // Initially invisible
 
     const oTwoNLabel = g.append("text")
-      .attr("x", 110)
-      .attr("y", -30)
+      .attr("x", 90)
+      .attr("y", -10)
       .text("O(2^n)")
       .attr("fill", "black");
 
@@ -268,7 +276,7 @@ export function plotComplexities(targetElementId) {
     const oNFactorialLine = g.append("path")
       .datum(d3.range(0, 7))
       .attr("fill", "none")
-      .attr("stroke", "red")
+      .attr("stroke", "#CC0000")
       .attr("stroke-width", 2)
       .attr("d", d3.line()
         .x(d => xScale(d))
@@ -278,15 +286,15 @@ export function plotComplexities(targetElementId) {
       .attr("clip-path", "url(#clip)");
 
     const oNFactorialLabelRect = g.append("rect")
-      .attr("x", 75)
+      .attr("x", 45)
       .attr("y", - 25)
       .attr("width", 45) // Adjust width here
       .attr("height", 20) // Adjust height here
-      .attr("fill", "red")
+      .attr("fill", "#CC0000")
       .attr("opacity", 0); // Initially invisible
 
     const oNFactorialLabel = g.append("text")
-      .attr("x", 80)
+      .attr("x", 50)
       .attr("y", - 10)
       .text("O(n!)")
       .attr("fill", "black");
@@ -301,7 +309,7 @@ export function plotComplexities(targetElementId) {
     const lines = [o1Line, oLogNLine, oNLine, oNLogNLine, oNSquaredLine, oTwoNLine, oNFactorialLine];
     const labelRects = [o1LabelRect, oLogNLabelRect, oNLabelRect, oNLogNLabelRect, oNSquaredLabelRect, oTwoNLabelRect, oNFactorialLabelRect];
     const labels = [o1Label, oLogNLabel, oNLabel, oNLogNLabel, oNSquaredLabel, oTwoNLabel, oNFactorialLabel];
-    const colors = ["steelblue", "steelblue", "yellow", "orange", "red", "red", "red"];
+    const colors = ["#6699FF", "#6699FF", "#FFCC00", "#FF6600", "#CC0000", "#CC0000", "#CC0000"];
 
     lines.forEach((line, index) => {
         const labelRect = labelRects[index];
