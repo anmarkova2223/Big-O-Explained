@@ -1,15 +1,34 @@
 import * as d3 from "d3";
 
-export function plotComplexities() {
-    
-    const width = 800;
-    const height = 600;
+export function plotComplexities(targetElementId) {
+
+    const targetDiv = document.getElementById(targetElementId);
+
+    // Define SVG container dimensions
+    const containerWidth = 1000; // New width
+    const containerHeight = 800; // New height
+
+    // Update SVG container dimensions
+    const svg = d3.select(targetDiv)
+        .append("svg")
+        .attr("width", containerWidth)
+        .attr("height", containerHeight);
+
+    // Keep inner dimensions unchanged
+    const width = 800; // Inner width
+    const height = 600; // Inner height
     const margin = { top: 50, right: 50, bottom: 50, left: 100 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
-    const svg = d3.select('#plot');
-    svg.selectAll("*").remove();
+    // Update positioning of elements based on inner dimensions
+    const g = svg.append("g")
+        .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+    // Adjust clipping path
+    svg.select("#clip rect")
+        .attr("width", innerWidth)
+        .attr("height", innerHeight);
 
     const plotSize = 28;
 
@@ -50,8 +69,8 @@ export function plotComplexities() {
         .text("Operations");
 
 
-    const g = svg.append("g")
-      .attr("transform", `translate(${margin.left}, ${margin.top})`);
+    // const g = svg.append("g")
+    //   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
     // Define clipping path
     svg.append("defs").append("clipPath")
@@ -62,36 +81,33 @@ export function plotComplexities() {
 
     // Label for color meanings
     const colorLegendGroup = svg.append("g")
-      .attr("transform", "translate(10, 10)");
+    .attr("transform", `translate(${innerWidth + margin.left + 55}, ${margin.top + 50})`); // Adjusted positioning
 
     const colorData = [
-      { color: "red", text: "Horrible" },
-      { color: "orange", text: "Bad" },
-      { color: "yellow", text: "Fair" },
-      { color: "steelblue", text: "Good" }
+    { color: "red", text: "Horrible" },
+    { color: "orange", text: "Bad" },
+    { color: "yellow", text: "Fair" },
+    { color: "steelblue", text: "Good" }
     ];
 
     const legendItems = colorLegendGroup.selectAll("g")
-      .data(colorData)
-      .enter().append("g")
-      .attr("transform", (d, i) => "translate(0, " + (i * 20) + ")");
+    .data(colorData)
+    .enter().append("g")
+    .attr("transform", (d, i) => `translate(0, ${i * 20})`);
 
     legendItems.append("rect")
-      .attr("x", 0)
-      .attr("y", 0)
-      .attr("width", 10)
-      .attr("height", 10)
-      .attr("fill", d => d.color);
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", 10)
+    .attr("height", 10)
+    .attr("fill", d => d.color);
 
     legendItems.append("text")
-      .attr("x", 15)
-      .attr("y", 10)
-      .text(d => d.text)
-      .attr("fill", "black")
-      .attr("font-size", 12);
-
-    // Move the colorLegendGroup to a new position
-    colorLegendGroup.attr("transform", "translate(825, 50)");
+    .attr("x", 15)
+    .attr("y", 10)
+    .text(d => d.text)
+    .attr("fill", "black")
+    .attr("font-size", 12);
 
     // O(1) line
     const o1Line = g.append("line")
@@ -129,19 +145,20 @@ export function plotComplexities() {
       )
       .attr("clip-path", "url(#clip)");
 
+    // O(log n) label
     const oLogNLabelRect = g.append("rect")
-      .attr("x", xScale(plotSize) + 5)
-      .attr("y", yScale(Math.log(plotSize)) - 15)
-      .attr("width", 68) // Adjust width here
-      .attr("height", 20) // Adjust height here
-      .attr("fill", "steelblue")
-      .attr("opacity", 0); // Initially invisible
+        .attr("x", xScale(plotSize) + 5)
+        .attr("y", yScale(Math.log(plotSize)) - 10) // Adjusted y position
+        .attr("width", 68)
+        .attr("height", 20)
+        .attr("fill", "steelblue")
+        .attr("opacity", 0); // Initially invisible
 
     const oLogNLabel = g.append("text")
-      .attr("x", xScale(plotSize) + 10)
-      .attr("y", yScale(Math.log(plotSize)))
-      .text("O(log n)")
-      .attr("fill", "black");
+        .attr("x", xScale(plotSize) + 10)
+        .attr("y", yScale(Math.log(plotSize)) + 5) // Adjusted y position
+        .text("O(log n)")
+        .attr("fill", "black");
 
     // O(n) line
     const oNLine = g.append("line")

@@ -4,8 +4,12 @@
   import { plotComplexities } from './cheatSheet.js';
 
   onMount(() => {
-      plotComplexities();
+      plotComplexities("big-o-graph");
   });
 </script>
 
-<svg id="plot" width="900" height="600"></svg>
+<div id="big-o-graph" style="width: 900px; height: 600px; margin-top: 80px; margin-left: auto; margin-right: auto;"></div>
+
+<style>
+
+</style>
