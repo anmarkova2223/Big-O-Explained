@@ -12,11 +12,11 @@
 
   let donuts = [
     { src: donutHypeClosed, visible: false, scrollPosition: 0, left: 0, width: 150 },
-    { src: donutHypeOpen, visible: false, scrollPosition: 500, left: 100, width: 150 },
-    { src: donutWave, visible: false, scrollPosition: 1000, left: 200, width: 160 },
-    { src: donutWaveLeft, visible: false, scrollPosition: 1500, left: 300, width: 150 },
-    { src: donutThinkRight, visible: false, scrollPosition: 2000, left: 400, width: 140 },
-    { src: donutThinkLeft, visible: false, scrollPosition: 2500, left: 500, width: 130 }
+    { src: donutHypeOpen, visible: false, scrollPosition: 500, left: 0, width: 150 },
+    { src: donutWave, visible: false, scrollPosition: 1000, left: 0, width: 160 },
+    { src: donutWaveLeft, visible: false, scrollPosition: 1500, left: 0, width: 150 },
+    { src: donutThinkRight, visible: false, scrollPosition: 2000, left: 0, width: 140 },
+    { src: donutThinkLeft, visible: false, scrollPosition: 2500, left: 0, width: 130 }
   ];
 
   onMount(() => {
