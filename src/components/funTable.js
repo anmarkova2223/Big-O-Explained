@@ -2,6 +2,7 @@ import * as d3 from "d3";
 export function funTable(targetElementId) {
     // Define table data
     const tableData = [
+        { otherName: "Name:", complexity: "Notation:", wayToRemember: "Fun Anecdote:" },
         { otherName: "Constant Time", complexity: "O(1)", wayToRemember: "Yeah!" },
         { otherName: "Logarithmic Time", complexity: "O(log n)", wayToRemember: "O(nice)" },
         { otherName: "Linear Time", complexity: "O(n)", wayToRemember: "O()" },
@@ -23,7 +24,7 @@ export function funTable(targetElementId) {
                 .attr("height", containerHeight);
 
     // Keep inner dimensions unchanged
-    const margin = { top: 50, right: 50, bottom: 50, left: 50};
+    const margin = { top: 1000, right: 50, bottom: 50, left: 50};
     const width = containerWidth - margin.left - margin.right;
     const height = containerHeight - margin.top - margin.bottom;
 
@@ -55,6 +56,6 @@ export function funTable(targetElementId) {
 
 
     // Apply specific styles to the first column (otherName)
-    cells.filter((d, i) => i === 0)
-         .style("font-weight", "bold"); // Make the text bold for the first column
+    // cells.filter((d, i) => i === 0)
+    //      .style("font-weight", "bold"); // Make the text bold for the first column
 }
