@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { funTable } from './funTable.js'
+  import { plotComplexities } from './cheatSheet.js';
   import donutWave from '../lib/donut-wave.png';
   import donutWaveLeft from '../lib/donut-wave-left.png';
   import donutHypeOpen from '../lib/donut-hype-eyes-open.png';
@@ -39,7 +40,7 @@
 
   // If Donut 2 is clicked (index 1), navigate to the new page
   if (index === 1) {
-    navigate('/new-page');
+    console.log("Change page")
   }
 
   // Call your function here
@@ -138,15 +139,6 @@
       {#if index === 1}
         <div class="speech-bubble" style={`top: ${top + 20}px; left: 71%;`}>
           What is Big O Notation? Why is it important?
-        </div>
-      {/if}
-      <!-- Add more conditions for other donuts if needed -->
-    {/if}
-
-    {#if clicked}
-      {#if index === 1}
-        <div class="speech-bubble" style={`top: ${top + 20}px; left: ${left + width}px;`}>
-          Clicked Donut 2!
         </div>
       {/if}
       <!-- Add more conditions for other donuts if needed -->
