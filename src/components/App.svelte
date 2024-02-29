@@ -1,7 +1,11 @@
 <script>
   import { onMount } from 'svelte';
+
+  import { goto } from '$app/navigation';
+
   import { funTable } from './funTable.js'
   import { plotComplexities } from './cheatSheet.js';
+
   import donutWave from '../lib/donut-wave.png';
   import donutWaveLeft from '../lib/donut-wave-left.png';
   import donutHypeOpen from '../lib/donut-hype-eyes-open.png';
@@ -41,6 +45,7 @@
   // If Donut 2 is clicked (index 1), navigate to the new page
   if (index === 1) {
     console.log("Change page")
+    goto('/about');
   }
 
   // Call your function here
