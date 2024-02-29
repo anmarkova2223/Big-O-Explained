@@ -17,6 +17,11 @@ const config = {
 		}),
 		paths: {
 			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
+		},
+	},
+	files: {
+		routes: {
+			'/About': './src/routes/About.svelte',
 		}
 	}
 };

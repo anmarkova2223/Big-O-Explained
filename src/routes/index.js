@@ -1,7 +1,14 @@
-// place files you want to import through the `$lib` alias in this folder.
-import { defineConfig } from 'vite';
-import { svelte } from '@sveltejs/vite-plugin-svelte';
+// src/routes/index.js
+import { defineConfig } from 'svelte-kit';
+import About from './About.svelte';
 
 export default defineConfig({
-  plugins: [svelte()],
+  kit: {
+    // ... other kit configurations
+    files: {
+      routes: {
+        About, // Explicitly include the About component
+      },
+    },
+  },
 });
