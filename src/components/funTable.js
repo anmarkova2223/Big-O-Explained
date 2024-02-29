@@ -3,8 +3,8 @@ export function funTable(targetElementId) {
     // Define table data
     const tableData = [
         { otherName: "Name:", complexity: "Notation:", wayToRemember: "Fun Anecdote:" },
-        { otherName: "Constant Time", complexity: "O(1)", wayToRemember: "Yeah!" },
-        { otherName: "Logarithmic Time", complexity: "O(log n)", wayToRemember: "O(nice)" },
+        { otherName: "Constant Time", complexity: "O(1)", wayToRemember: "O(Yeah!)" },
+        { otherName: "Logarithmic Time", complexity: "O(log n)", wayToRemember: "O(Nice)" },
         { otherName: "Linear Time", complexity: "O(n)", wayToRemember: "O()" },
         { otherName: "Quasilinear Time", complexity: "O(n log n)", wayToRemember: "O()" },
         { otherName: "Quadratic Time", complexity: "O(n^2)", wayToRemember: "O()" },
