@@ -125,16 +125,27 @@
   </div>
 
   {#each donuts as { src, top, left, width, hovered, clicked }, index}
+    {#if index === 0}
+        <div class="speech-bubble" style={`top: ${top + 20}px; left: 48%;`}>
+          Welcome! My name is Big O. To get started click on my dopplegangers to learn more about Big O Notation.
+        </div>
+      {/if}
     {#if hovered}
-      <div class="speech-bubble" style={`top: ${top + 20}px; left: ${left + width}px;`}>
-        Hovered!
-      </div>
+      {#if index === 1}
+        <div class="speech-bubble" style={`top: ${top + 20}px; left: 71%;`}>
+          What is Big O Notation? Why is it important?
+        </div>
+      {/if}
+      <!-- Add more conditions for other donuts if needed -->
     {/if}
 
     {#if clicked}
-      <div class="speech-bubble" style={`top: ${top + 20}px; left: ${left + width}px;`}>
-        Clicked!
-      </div>
+      {#if index === 1}
+        <div class="speech-bubble" style={`top: ${top + 20}px; left: ${left + width}px;`}>
+          Clicked Donut 2!
+        </div>
+      {/if}
+      <!-- Add more conditions for other donuts if needed -->
     {/if}
     <img class="donut"
       src={src}
