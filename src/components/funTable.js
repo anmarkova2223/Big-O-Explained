@@ -44,11 +44,15 @@ export function funTable(targetElementId) {
                       .append("xhtml:tr");
 
     // Append table data cells
-    rows.selectAll("td")
-        .data(d => [d.complexity, d.wayToRemember])
+    const cells = rows.selectAll("td")
+        .data(d => [d.otherName, d.complexity, d.wayToRemember]) // Add otherName to the data binding
         .enter()
         .append("xhtml:td")
         .style("border", "1px solid black") // Optional: add border to cells
         .style("padding", "8px") // Optional: add padding to cells
         .text(d => d);
+
+    // Apply specific styles to the first column (otherName)
+    cells.filter((d, i) => i === 0)
+         .style("font-weight", "bold"); // Make the text bold for the first column
 }

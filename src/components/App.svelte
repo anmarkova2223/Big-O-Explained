@@ -5,30 +5,25 @@
 
   onMount(() => {
       plotComplexities("big-o-graph", "Big O Complexity Visualization", "Try hovering over the lines!");
-      funTable("big-o-graph");
+      funTable("fun-table");
   });
 </script>
 
 <style>
-  /* Apply flex properties to the container div */
-  .container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start; /* Align items to the top */
-      height: 90vh; /* Adjust the height of the container */
-  }
+.container {
+  display: flex;
+  width: 100vw; /* Set container width to full viewport width */
+  height: 100vh; /* Set container height to full viewport height */
+}
 
-  /* Apply styles to the graph div */
-  #big-o-graph {
-      max-width: 60%; /* Adjust width of the graph */
-      max-height: 100%; /* Allow the graph to occupy full height */
-  }
+#big-o-graph {
+  flex: 2; /* Take up 2/3 of the container */
+  overflow: auto; /* Hide overflowing content */
+}
 
-  /* Apply styles to the table div */
-  #fun-table {
-      max-width: 40%; /* Adjust width of the table */
-      overflow-y: auto; /* Enable vertical scroll if content exceeds height */
-      padding: 0 10px; /* Add padding for better appearance */
+#fun-table {
+  flex: 1; /* Take up 1/3 of the container */
+  overflow-y: auto; /* Enable vertical scroll if content exceeds height */
   }
 </style>
 
