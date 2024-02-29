@@ -11,7 +11,7 @@
   import donutThinkRight from '../lib/donut-think-right.png';
 
   let donuts = [
-    { src: donutWave, top: 100, left: 25, width: 150 },
+    { src: donutWave, top: 100, left: 35, width: 150 },
     { src: donutHypeClosed, top: 150, left: 100, width: 150 },
     { src: donutHypeOpen, top: 250, left: 100, width: 150 },
     { src: donutWave, top: 350, left: 100, width: 150 },
@@ -20,7 +20,7 @@
     { src: donutThinkLeft, top: 650, left: 100, width: 120 }
   ];
 
-  let greeting = "Welcome! are you ready to learn Big O Notation?\nHover over or click my dopplegangers to get started.";
+  let greeting = "Welcome! My name is Big O. To get started click on my dopplegangers to learn more about Big O Notation.";
 
   onMount(() => {
     // plotComplexities("big-o-graph", "Big O Complexity Visualization", "Try hovering over the lines!");
@@ -76,11 +76,21 @@
   .speech-bubble {
     position: absolute;
     max-width: 300px; /* Set your desired maximum width */
-    background-color: #ffffff;
+    background-color: #CCCCCC;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     white-space: normal; /* Allow text to wrap */
+  }
+  .speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -10px; /* Half of the arrow height */
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #CCCCCC
   }
 </style>
 
@@ -103,7 +113,7 @@
     <img class="donut" src={donut.src} alt="Donut" style={`top: ${donut.top}px; left: ${donut.left}%; width: ${donut.width}px`} />
   {/each}
 
-  <div class="speech-bubble" style="top: 110px; left: 50%;">
+  <div class="speech-bubble" style="top: 120px; left: 48%;">
     {greeting}
   </div>
 </div>
