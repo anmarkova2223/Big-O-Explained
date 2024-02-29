@@ -64,4 +64,4 @@
 </div>
 
 <h1>Scroll down to reveal the donut</h1>
-<img src={donutWave} id="donut" alt="Donut" class:donut={donutVisible ? 'donut-visible' : ''}> <!-- Use the imported image variable -->
+<img src={donutWave} id="donut" alt="Donut" class:donut={donutVisible ? 'donut-visible' : ''} style="max-width: 150px; height: auto;">
