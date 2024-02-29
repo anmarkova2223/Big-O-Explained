@@ -12,6 +12,7 @@
 
   let donuts = [
     { src: donutWave, top: 100, left: 35, width: 150 },
+    { src: donutThinkRight, top: 300, left: 60, width: 130 },
     { src: donutHypeClosed, top: 150, left: 100, width: 150 },
     { src: donutHypeOpen, top: 250, left: 100, width: 150 },
     { src: donutWave, top: 350, left: 100, width: 150 },
@@ -26,6 +27,20 @@
     // plotComplexities("big-o-graph", "Big O Complexity Visualization", "Try hovering over the lines!");
     // funTable("fun-table");
   });
+
+  function handleDonutHover(index) {
+    donuts[index].hovered = true;
+  }
+
+  function handleDonutOut(index) {
+    donuts[index].hovered = false;
+  }
+
+  function handleDonutClick(index) {
+    donuts[index].clicked = true;
+    // Call your function here
+    console.log("Donut clicked!");
+  }
 </script>
 
 <style>
@@ -109,11 +124,24 @@
     </div>
   </div>
 
-  {#each donuts as donut}
-    <img class="donut" src={donut.src} alt="Donut" style={`top: ${donut.top}px; left: ${donut.left}%; width: ${donut.width}px`} />
-  {/each}
+  {#each donuts as { src, top, left, width, hovered, clicked }, index}
+    {#if hovered}
+      <div class="speech-bubble" style={`top: ${top + 20}px; left: ${left + width}px;`}>
+        Hovered!
+      </div>
+    {/if}
 
-  <div class="speech-bubble" style="top: 120px; left: 48%;">
-    {greeting}
-  </div>
+    {#if clicked}
+      <div class="speech-bubble" style={`top: ${top + 20}px; left: ${left + width}px;`}>
+        Clicked!
+      </div>
+    {/if}
+    <img class="donut"
+      src={src}
+      alt="Donut"
+      style={`top: ${top}px; left: ${left}%; width: ${width}px`}
+      on:mouseover={() => handleDonutHover(index)}
+      on:mouseout={() => handleDonutOut(index)}
+      on:click={() => handleDonutClick(index)}/>
+  {/each}
 </div>
