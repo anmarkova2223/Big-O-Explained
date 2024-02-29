@@ -3,25 +3,30 @@
   import { plotComplexities } from './cheatSheet.js';
   import { funTable } from './funTable.js'
   import { homepage } from './homepage.js';
-  import donutWave from '../lib/donut-wave.png'; // Adjust the import path
+  import donutWave from '../lib/donut-wave.png';
+  import donutWaveLeft from '../lib/donut-wave-left.png';
+  import donutHypeOpen from '../lib/donut-hype-eyes-open.png';
+  import donutHypeClosed from '../lib/donut-hype-eyes-closed.png';
+  import donutThinkLeft from '../lib/donut-think-left.png';
+  import donutThinkRight from '../lib/donut-think-right.png';
+
+  let donuts = [
+    { src: donutWave, visible: false, scrollPosition: 500 },
+    { src: donutWaveLeft, visible: false, scrollPosition: 1000 },
+    { src: donutHypeOpen, visible: false, scrollPosition: 1500 },
+    { src: donutHypeClosed, visible: false, scrollPosition: 2000 },
+    { src: donutThinkLeft, visible: false, scrollPosition: 2500 },
+    { src: donutThinkRight, visible: false, scrollPosition: 3000 }
+  ];
 
   let donutVisible = false;
 
   onMount(() => {
-    if (typeof window !== 'undefined') {
-      const onScroll = homepage('donut');
-      window.addEventListener('scroll', onScroll);
-    }
+    const onScroll = homepage('donuts', donuts);
+    window.addEventListener('scroll', onScroll);
     // plotComplexities("big-o-graph", "Big O Complexity Visualization", "Try hovering over the lines!");
     // funTable("fun-table");
   });
-
-  $: {
-    if (typeof document !== 'undefined') {
-      const donutElement = document.getElementById('donut');
-      donutVisible = donutElement.classList.contains('donut-visible');
-    }
-  }
 </script>
 
 <style>
@@ -65,7 +70,7 @@
   <div id="fun-table">
       <!-- Your table component here -->
   </div>
+  {#each donuts as donut}
+    <img src={donut.src} alt="Donut" class:donut={donut.visible ? 'donut-visible' : ''} style="max-width: 150px; height: auto;">
+  {/each}
 </div>
-
-<h1>Scroll down to reveal the donut</h1>
-<img src={donutWave} id="donut" alt="Donut" class:donut={donutVisible ? 'donut-visible' : ''} style="max-width: 150px; height: auto;">
