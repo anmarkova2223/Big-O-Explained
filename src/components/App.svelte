@@ -1,5 +1,7 @@
 <script>
   import { onMount } from 'svelte';
+  import { plotComplexities } from './cheatSheet.js';
+  import { funTable } from './funTable.js'
   import { homepage } from './homepage.js';
   import donutWave from '../lib/donut-wave.png'; // Adjust the import path
 
@@ -10,6 +12,8 @@
       const onScroll = homepage('donut');
       window.addEventListener('scroll', onScroll);
     }
+    // plotComplexities("big-o-graph", "Big O Complexity Visualization", "Try hovering over the lines!");
+    // funTable("fun-table");
   });
 
   $: {
