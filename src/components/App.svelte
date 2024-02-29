@@ -11,13 +11,16 @@
   import donutThinkRight from '../lib/donut-think-right.png';
 
   let donuts = [
-    { src: donutHypeClosed, top: 50, left: 100, width: 150 },
-    { src: donutHypeOpen, top: 150, left: 200, width: 150 },
-    { src: donutWave, top: 250, left: 300, width: 150 },
-    { src: donutWaveLeft, top: 350, left: 400, width: 140 },
-    { src: donutThinkRight, top: 450, left: 500, width: 130 },
-    { src: donutThinkLeft, top: 550, left: 600, width: 120 }
+    { src: donutWave, top: 100, left: 25, width: 150 },
+    { src: donutHypeClosed, top: 150, left: 100, width: 150 },
+    { src: donutHypeOpen, top: 250, left: 100, width: 150 },
+    { src: donutWave, top: 350, left: 100, width: 150 },
+    { src: donutWaveLeft, top: 450, left: 100, width: 140 },
+    { src: donutThinkRight, top: 550, left: 100, width: 130 },
+    { src: donutThinkLeft, top: 650, left: 100, width: 120 }
   ];
+
+  let greeting = "Welcome! are you ready to learn Big O Notation?\nHover over or click my dopplegangers to get started.";
 
   onMount(() => {
     // plotComplexities("big-o-graph", "Big O Complexity Visualization", "Try hovering over the lines!");
@@ -26,43 +29,81 @@
 </script>
 
 <style>
-  .container {
+  .title-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color:#99CCFF;
+    z-index: 1;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .main-container {
     display: flex;
-    justify-content: center; /* Center the child elements horizontally */
-    align-items: center; /* Center the child elements vertically */
-    width: 100vw; /* Set container width to full viewport width */
-    height: 100vh; /* Set container height to full viewport height */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
   }
 
   #big-o-graph {
-    flex: 2; /* Take up 2/3 of the container */
-    overflow: auto; /* Hide overflowing content */
+    flex: 2;
+    overflow: auto;
+  }
+
+  #fun-table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    overflow-y: auto;
+    margin-right: 75px;
   }
 
   #fun-table {
-    flex: 1; /* Take up 1/3 of the container */
-    overflow-y: auto; /* Enable vertical scroll if content exceeds height */
     text-align: center;
-    margin-left: -250px;
-    margin-right: 75px;
   }
 
   .donut {
     height: auto;
     margin-bottom: 50px;
-    position:absolute;
+    position: absolute;
   }
 
+  .speech-bubble {
+    position: absolute;
+    max-width: 300px; /* Set your desired maximum width */
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    white-space: normal; /* Allow text to wrap */
+  }
 </style>
 
-<div class="container">
+<div class="title-container">
+  <h1>Big O Notation Explained</h1>
+</div>
+
+<div class="main-container">
   <div id="big-o-graph">
-      <!-- Your big-o-graph component here -->
+    <!-- Your big-o-graph component here -->
   </div>
-  <div id="fun-table">
+
+  <div id="fun-table-container">
+    <div id="fun-table">
       <!-- Your table component here -->
+    </div>
   </div>
-    {#each donuts as donut}
-      <img class="donut" src={donut.src} alt="Donut" style={`top: ${donut.top}px; left: ${donut.left}px; width: ${donut.width}px`}/>
-    {/each}
+
+  {#each donuts as donut}
+    <img class="donut" src={donut.src} alt="Donut" style={`top: ${donut.top}px; left: ${donut.left}%; width: ${donut.width}px`} />
+  {/each}
+
+  <div class="speech-bubble" style="top: 110px; left: 50%;">
+    {greeting}
+  </div>
 </div>
