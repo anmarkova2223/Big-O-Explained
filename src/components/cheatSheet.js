@@ -1,12 +1,12 @@
 import * as d3 from "d3";
 
-export function plotComplexities(targetElementId) {
+export function plotComplexities(targetElementId, title, instruction) {
 
     const targetDiv = document.getElementById(targetElementId);
 
     // Define SVG container dimensions
     const containerWidth = 900; // New width
-    const containerHeight = 600; // New height
+    const containerHeight = 700; // New height
 
     // Update SVG container dimensions
     const svg = d3.select(targetDiv)
@@ -25,7 +25,7 @@ export function plotComplexities(targetElementId) {
     // Keep inner dimensions unchanged
     const width = 800; // Inner width
     const height = 600; // Inner height
-    const margin = { top: 50, right: 50, bottom: 50, left: 100 };
+    const margin = { top: 100, right: 50, bottom: 50, left: 100 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
@@ -326,4 +326,21 @@ export function plotComplexities(targetElementId) {
           label.attr('fill', 'black');
         });
       });
+
+    // Append title
+    svg.append("text")
+        .attr("class", "title")
+        .attr("transform", `translate(${margin.left + innerWidth / 2},${margin.top - 70})`)
+        .style("text-anchor", "middle")
+        .style("font-weight", "bold")
+        .style("font-size", "20px")
+        .text(title);
+
+    // Append instruction
+    svg.append("text")
+        .attr("class", "instruction")
+        .attr("transform", `translate(${margin.left + innerWidth / 2},${margin.top - 40})`)
+        .style("text-anchor", "middle")
+        .style("font-style", "italic")
+        .text(instruction);
     }
