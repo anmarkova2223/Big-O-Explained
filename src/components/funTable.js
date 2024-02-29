@@ -5,11 +5,11 @@ export function funTable(targetElementId) {
         { otherName: "Name:", complexity: "Notation:", wayToRemember: "Fun Anecdote:" },
         { otherName: "Constant Time", complexity: "O(1)", wayToRemember: "O(Yeah!)" },
         { otherName: "Logarithmic Time", complexity: "O(log n)", wayToRemember: "O(Nice)" },
-        { otherName: "Linear Time", complexity: "O(n)", wayToRemember: "O()" },
-        { otherName: "Quasilinear Time", complexity: "O(n log n)", wayToRemember: "O()" },
-        { otherName: "Quadratic Time", complexity: "O(n^2)", wayToRemember: "O()" },
-        { otherName: "Exponential Time", complexity: "O(2^n)", wayToRemember: "O()" },
-        { otherName: "Factorial Time", complexity: "O(n!)", wayToRemember: "O(MG)" }
+        { otherName: "Linear Time", complexity: "O(n)", wayToRemember: "O(K)" },
+        { otherName: "Quasilinear Time", complexity: "O(n log n)", wayToRemember: "O(K Nice?)" },
+        { otherName: "Quadratic Time", complexity: "O(n^2)", wayToRemember: "O(My!)" },
+        { otherName: "Exponential Time", complexity: "O(2^n)", wayToRemember: "O(No!)" },
+        { otherName: "Factorial Time", complexity: "O(n!)", wayToRemember: "O(MG!)" }
     ];
 
     // Get the target SVG container
