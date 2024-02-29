@@ -11,15 +11,13 @@
   import donutThinkRight from '../lib/donut-think-right.png';
 
   let donuts = [
-    { src: donutHypeClosed, visible: false, scrollPosition: 0 },
-    { src: donutHypeOpen, visible: false, scrollPosition: 500 },
-    { src: donutWave, visible: false, scrollPosition: 1000 },
-    { src: donutWaveLeft, visible: false, scrollPosition: 1500 },
-    { src: donutThinkRight, visible: false, scrollPosition: 2000 },
-    { src: donutThinkLeft, visible: false, scrollPosition: 2500 }
+    { src: donutHypeClosed, visible: false, scrollPosition: 0, left: 0, width: 150 },
+    { src: donutHypeOpen, visible: false, scrollPosition: 500, left: 100, width: 150 },
+    { src: donutWave, visible: false, scrollPosition: 1000, left: 200, width: 160 },
+    { src: donutWaveLeft, visible: false, scrollPosition: 1500, left: 300, width: 150 },
+    { src: donutThinkRight, visible: false, scrollPosition: 2000, left: 400, width: 140 },
+    { src: donutThinkLeft, visible: false, scrollPosition: 2500, left: 500, width: 130 }
   ];
-
-  let donutVisible = false;
 
   onMount(() => {
     const onScroll = homepage('donuts', donuts);
@@ -54,25 +52,22 @@
   .donut-container {
     position: absolute;
     top: 0;
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%);
+    left: 0;
+    width: 100%; /* Ensure donut container spans the entire width */
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 1; /* Ensure donuts are above other content */
+    z-index: 1;
   }
 
   .donut {
     opacity: 0;
     transition: opacity 0.5s;
-    width: 150px;
     height: auto;
-    margin-bottom: 50px; /* Adjust spacing between donuts */
+    margin-bottom: 50px;
+    position: absolute;
   }
 
-  .donut-visible {
-    opacity: 1;
-  }
 </style>
 
 <div class="container">
@@ -84,7 +79,7 @@
   </div>
   <div class="donut-container">
     {#each donuts as donut}
-      <img src={donut.src} alt="Donut" class:donut={donut.visible ? 'donut-visible' : ''} style="max-width: 150px; height: auto;" />
+      <img src={donut.src} alt="Donut" class:donut={donut.visible ? 'donut-visible' : ''} style={`top: ${donut.scrollPosition}px; left: ${donut.left}px; width: ${donut.width}px`}/>
     {/each}
   </div>
 </div>
