@@ -1,12 +1,16 @@
 import * as d3 from "d3";
-export function homepage(donutId, threshold = 0.75) {
+export function homepage(donutId, donuts) {
     return function () {
-      const donut = document.getElementById(donutId);
-      const donutTop = donut.offsetTop;
-      const scrollTop = window.scrollY;
-  
-      if (donutTop - scrollTop < window.innerHeight * threshold) {
-        donut.classList.add('donut-visible');
-      }
+      const scrollPosition = window.scrollY;
+      donuts.forEach(donut => {
+        const donutElement = document.getElementById(donutId);
+        if (donutElement) {
+          const donutTop = donutElement.offsetTop;
+          if (donutTop - scrollPosition < window.innerHeight) {
+            donut.visible = true;
+          }
+        }
+      });
     };
   }
+  
