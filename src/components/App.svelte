@@ -45,8 +45,8 @@
   .donut {
     opacity: 0;
     transition: opacity 0.5s;
-    width: 200px; /* Set the width */
-    height: 200; /* Maintain aspect ratio */
+    width: 150px; /* Set the width */
+    height: auto; /* Maintain aspect ratio */
   }
 
   .donut-visible {
