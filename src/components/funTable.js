@@ -1,3 +1,4 @@
+import * as d3 from "d3";
 export function funTable(targetElementId) {
     // Define table data
     const tableData = [
@@ -22,7 +23,7 @@ export function funTable(targetElementId) {
                 .attr("height", containerHeight);
 
     // Keep inner dimensions unchanged
-    const margin = { top: 50, right: 50, bottom: 50, left: 100 };
+    const margin = { top: 50, right: 50, bottom: 50, left: 50};
     const width = containerWidth - margin.left - margin.right;
     const height = containerHeight - margin.top - margin.bottom;
 
@@ -51,6 +52,7 @@ export function funTable(targetElementId) {
         .style("border", "1px solid black") // Optional: add border to cells
         .style("padding", "8px") // Optional: add padding to cells
         .text(d => d);
+
 
     // Apply specific styles to the first column (otherName)
     cells.filter((d, i) => i === 0)
