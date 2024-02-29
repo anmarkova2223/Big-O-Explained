@@ -43,7 +43,14 @@ export function funTable(targetElementId) {
     const rows = table.selectAll("tr")
                       .data(tableData)
                       .enter()
-                      .append("xhtml:tr");
+                      .append("xhtml:tr")
+                      .style("background-color", (d, i) => {
+                          if (i > 0 & i < 3) return "rgba(102, 153, 255, 0.5)"; // First two rows are blue
+                          else if (i === 3) return "rgba(255, 204, 0, 0.5)"; // Third row is yellow
+                          else if (i === 4) return "rgba(255, 102, 0, 0.5)"; // Fourth row is orange
+                          else if (i == 0) return "rgba(255, 102, 0, 0)";
+                          else return "rgba(204, 0, 0, 0.5)"; // Rest of the rows are red
+                      });
 
     // Append table data cells
     const cells = rows.selectAll("td")
@@ -54,6 +61,9 @@ export function funTable(targetElementId) {
         .style("padding", "8px") // Optional: add padding to cells
         .text(d => d);
 
+    rows.filter((d, i) => i === 0)
+        .selectAll("td")
+        .style("font-weight", "bold");
 
     // Apply specific styles to the first column (otherName)
     // cells.filter((d, i) => i === 0)
