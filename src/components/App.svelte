@@ -48,10 +48,9 @@
   }
 
   .donut {
-    opacity: 1;
-    transition: opacity 0.5s;
     height: auto;
     margin-bottom: 50px;
+    position:absolute;
   }
 
 </style>
