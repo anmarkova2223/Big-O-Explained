@@ -14,7 +14,7 @@
       display: flex;
       justify-content: center; /* Center the graph horizontally */
       align-items: center; /* Center the graph vertically */
-      height: 100vh; /* Set the container's height to 100% of the viewport height */
+      height: 50vh; /* Set the container's height to 100% of the viewport height */
       flex-direction: column; /* Arrange items vertically */
   }
 
