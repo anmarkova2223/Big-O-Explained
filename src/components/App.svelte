@@ -20,10 +20,10 @@
   ];
 
   onMount(() => {
-    // const onScroll = homepage('donuts', donuts);
-    // window.addEventListener('scroll', onScroll);
-    plotComplexities("big-o-graph", "Big O Complexity Visualization", "Try hovering over the lines!");
-    funTable("fun-table");
+    const onScroll = homepage('donuts', donuts);
+    window.addEventListener('scroll', onScroll);
+    // plotComplexities("big-o-graph", "Big O Complexity Visualization", "Try hovering over the lines!");
+    // funTable("fun-table");
   });
 </script>
 
@@ -77,9 +77,9 @@
   <div id="fun-table">
       <!-- Your table component here -->
   </div>
-  <!-- <div class="donut-container">
+  <div class="donut-container">
     {#each donuts as donut}
       <img src={donut.src} alt="Donut" class:donut={donut.visible ? 'donut-visible' : ''} style={`top: ${donut.scrollPosition}px; left: ${donut.left}px; width: ${donut.width}px`}/>
     {/each}
-  </div> -->
+  </div>
 </div>
