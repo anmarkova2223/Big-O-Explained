@@ -1,32 +1,42 @@
-<!-- App.svelte -->
 <script>
   import { onMount } from 'svelte';
   import { plotComplexities } from './cheatSheet.js';
+  import { funTable } from './funTable.js';
 
   onMount(() => {
       plotComplexities("big-o-graph", "Big O Complexity Visualization", "Try hovering over the lines!");
+      funTable("big-o-graph");
   });
 </script>
 
 <style>
   /* Apply flex properties to the container div */
-  .big-o-graph-container {
+  .container {
       display: flex;
-      justify-content: center; /* Center the graph horizontally */
-      align-items: center; /* Center the graph vertically */
-      height: 50vh; /* Set the container's height to 100% of the viewport height */
-      flex-direction: column; /* Arrange items vertically */
+      justify-content: center;
+      align-items: flex-start; /* Align items to the top */
+      height: 90vh; /* Adjust the height of the container */
   }
 
   /* Apply styles to the graph div */
   #big-o-graph {
-      max-width: 80%; /* Set a maximum width to prevent it from getting too wide */
-      max-height: 80%; /* Set a maximum height to prevent it from getting too tall */
+      max-width: 60%; /* Adjust width of the graph */
+      max-height: 100%; /* Allow the graph to occupy full height */
+  }
+
+  /* Apply styles to the table div */
+  #fun-table {
+      max-width: 40%; /* Adjust width of the table */
+      overflow-y: auto; /* Enable vertical scroll if content exceeds height */
+      padding: 0 10px; /* Add padding for better appearance */
   }
 </style>
 
-<div class="big-o-graph-container">
+<div class="container">
   <div id="big-o-graph">
       <!-- Your big-o-graph component here -->
+  </div>
+  <div id="fun-table">
+      <!-- Your table component here -->
   </div>
 </div>
