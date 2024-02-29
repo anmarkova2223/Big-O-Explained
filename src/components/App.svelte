@@ -11,12 +11,12 @@
   import donutThinkRight from '../lib/donut-think-right.png';
 
   let donuts = [
-    { src: donutWave, visible: false, scrollPosition: 500 },
-    { src: donutWaveLeft, visible: false, scrollPosition: 1000 },
-    { src: donutHypeOpen, visible: false, scrollPosition: 1500 },
-    { src: donutHypeClosed, visible: false, scrollPosition: 2000 },
-    { src: donutThinkLeft, visible: false, scrollPosition: 2500 },
-    { src: donutThinkRight, visible: false, scrollPosition: 3000 }
+    { src: donutHypeClosed, visible: false, scrollPosition: 0 },
+    { src: donutHypeOpen, visible: false, scrollPosition: 500 },
+    { src: donutWave, visible: false, scrollPosition: 1000 },
+    { src: donutWaveLeft, visible: false, scrollPosition: 1500 },
+    { src: donutThinkRight, visible: false, scrollPosition: 2000 },
+    { src: donutThinkLeft, visible: false, scrollPosition: 2500 }
   ];
 
   let donutVisible = false;
@@ -51,11 +51,23 @@
     margin-right: 75px;
   }
 
+  .donut-container {
+    position: absolute;
+    top: 0;
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1; /* Ensure donuts are above other content */
+  }
+
   .donut {
     opacity: 0;
     transition: opacity 0.5s;
-    width: 150px; /* Set the width */
-    height: auto; /* Maintain aspect ratio */
+    width: 150px;
+    height: auto;
+    margin-bottom: 50px; /* Adjust spacing between donuts */
   }
 
   .donut-visible {
@@ -70,7 +82,9 @@
   <div id="fun-table">
       <!-- Your table component here -->
   </div>
-  {#each donuts as donut}
-    <img src={donut.src} alt="Donut" class:donut={donut.visible ? 'donut-visible' : ''} style="max-width: 150px; height: auto;">
-  {/each}
+  <div class="donut-container">
+    {#each donuts as donut}
+      <img src={donut.src} alt="Donut" class:donut={donut.visible ? 'donut-visible' : ''} style="max-width: 150px; height: auto;" />
+    {/each}
+  </div>
 </div>
