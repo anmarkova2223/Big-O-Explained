@@ -11,17 +11,15 @@
   import donutThinkRight from '../lib/donut-think-right.png';
 
   let donuts = [
-    { src: donutHypeClosed, visible: false, scrollPosition: 0, left: 0, width: 150 },
-    { src: donutHypeOpen, visible: false, scrollPosition: 500, left: 0, width: 150 },
-    { src: donutWave, visible: false, scrollPosition: 1000, left: 0, width: 150 },
-    { src: donutWaveLeft, visible: false, scrollPosition: 1500, left: 0, width: 140 },
-    { src: donutThinkRight, visible: false, scrollPosition: 2000, left: 0, width: 130 },
-    { src: donutThinkLeft, visible: false, scrollPosition: 2500, left: 0, width: 120 }
+    { src: donutHypeClosed, top: 50, left: 100, width: 150 },
+    { src: donutHypeOpen, top: 150, left: 200, width: 150 },
+    { src: donutWave, top: 250, left: 300, width: 150 },
+    { src: donutWaveLeft, top: 350, left: 400, width: 140 },
+    { src: donutThinkRight, top: 450, left: 500, width: 130 },
+    { src: donutThinkLeft, top: 550, left: 600, width: 120 }
   ];
 
   onMount(() => {
-    const onScroll = homepage('donuts', donuts);
-    window.addEventListener('scroll', onScroll);
     // plotComplexities("big-o-graph", "Big O Complexity Visualization", "Try hovering over the lines!");
     // funTable("fun-table");
   });
@@ -49,23 +47,11 @@
     margin-right: 75px;
   }
 
-  /* .donut-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Ensure donut container spans the entire width */
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 1;
-  } */
-
   .donut {
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.5s;
     height: auto;
     margin-bottom: 50px;
-    position: absolute;
   }
 
 </style>
@@ -77,9 +63,7 @@
   <div id="fun-table">
       <!-- Your table component here -->
   </div>
-  <!-- <div class="donut-container"> -->
     {#each donuts as donut}
-      <img src={donut.src} alt="Donut" class:donut={donut.visible ? 'donut-visible' : ''} style={`top: ${donut.scrollPosition}px; left: ${donut.left}px; width: ${donut.width}px`}/>
+      <img class="donut" src={donut.src} alt="Donut" style={`top: ${donut.top}px; left: ${donut.left}px; width: ${donut.width}px`}/>
     {/each}
-  <!-- </div> -->
 </div>
