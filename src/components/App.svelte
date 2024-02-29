@@ -13,10 +13,10 @@
   let donuts = [
     { src: donutHypeClosed, visible: false, scrollPosition: 0, left: 0, width: 150 },
     { src: donutHypeOpen, visible: false, scrollPosition: 500, left: 0, width: 150 },
-    { src: donutWave, visible: false, scrollPosition: 1000, left: 0, width: 160 },
-    { src: donutWaveLeft, visible: false, scrollPosition: 1500, left: 0, width: 150 },
-    { src: donutThinkRight, visible: false, scrollPosition: 2000, left: 0, width: 140 },
-    { src: donutThinkLeft, visible: false, scrollPosition: 2500, left: 0, width: 130 }
+    { src: donutWave, visible: false, scrollPosition: 1000, left: 0, width: 150 },
+    { src: donutWaveLeft, visible: false, scrollPosition: 1500, left: 0, width: 140 },
+    { src: donutThinkRight, visible: false, scrollPosition: 2000, left: 0, width: 130 },
+    { src: donutThinkLeft, visible: false, scrollPosition: 2500, left: 0, width: 120 }
   ];
 
   onMount(() => {
@@ -49,16 +49,16 @@
     margin-right: 75px;
   }
 
-  .donut-container {
+  /* .donut-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%; /* Ensure donut container spans the entire width */
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 1;
-  }
+  } */
 
   .donut {
     opacity: 0;
@@ -77,9 +77,9 @@
   <div id="fun-table">
       <!-- Your table component here -->
   </div>
-  <div class="donut-container">
+  <!-- <div class="donut-container"> -->
     {#each donuts as donut}
       <img src={donut.src} alt="Donut" class:donut={donut.visible ? 'donut-visible' : ''} style={`top: ${donut.scrollPosition}px; left: ${donut.left}px; width: ${donut.width}px`}/>
     {/each}
-  </div>
+  <!-- </div> -->
 </div>
