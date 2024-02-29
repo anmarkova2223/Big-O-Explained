@@ -1,8 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { plotComplexities } from './cheatSheet.js';
   import { funTable } from './funTable.js'
-  import { homepage } from './homepage.js';
   import donutWave from '../lib/donut-wave.png';
   import donutWaveLeft from '../lib/donut-wave-left.png';
   import donutHypeOpen from '../lib/donut-hype-eyes-open.png';
@@ -37,10 +35,16 @@
   }
 
   function handleDonutClick(index) {
-    donuts[index].clicked = true;
-    // Call your function here
-    console.log("Donut clicked!");
+  donuts[index].clicked = true;
+
+  // If Donut 2 is clicked (index 1), navigate to the new page
+  if (index === 1) {
+    navigate('/new-page');
   }
+
+  // Call your function here
+  console.log("Donut clicked!");
+}
 </script>
 
 <style>
