@@ -75,6 +75,9 @@
   else if (index == 4) {
     goto('/logarithmic');
   }
+  else if (index == 5) {
+    goto('/linear');
+  }
   // Call your function here
   console.log("Donut clicked!");
 }
