@@ -81,6 +81,9 @@
   else if (index == 6) {
     goto('/quasilinear');
   }
+  else if (index == 7) {
+    goto('/quadratic')
+  }
   // Call your function here
   console.log("Donut clicked!");
 }
