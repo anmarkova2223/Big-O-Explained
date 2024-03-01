@@ -1,5 +1,5 @@
 <script>
-  import Graph from '../../components/Graph.svelte';
+  import Linear from '../../components/Linear.svelte';
 </script>
 
-<Graph />
+<Linear />
