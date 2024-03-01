@@ -5,6 +5,7 @@
 
   import { funTable } from './funTable.js'
   import { plotComplexities } from './cheatSheet.js';
+  import { drawPath } from './path.js';
 
   import donutWave from '../lib/donut-wave.png';
   import donutWaveLeft from '../lib/donut-wave-left.png';
@@ -16,7 +17,7 @@
   let donuts = [
     { src: donutWave, top: 100, left: 35, width: 150 },
     { src: donutThinkRight, top: 300, left: 60, width: 130 },
-    { src: donutHypeClosed, top: 150, left: 100, width: 150 },
+    { src: donutHypeClosed, top: 500, left: 20, width: 150 },
     { src: donutHypeOpen, top: 250, left: 100, width: 150 },
     { src: donutWave, top: 350, left: 100, width: 150 },
     { src: donutWaveLeft, top: 450, left: 100, width: 140 },
@@ -25,10 +26,28 @@
   ];
 
   let greeting = "Welcome! My name is Big O. To get started click on my dopplegangers to learn more about Big O Notation.";
+  
+  let svgWidth;
+  let svgHeight;
+
+  let pathData = [
+    { x: 600, y: 0 },
+    { x: 150, y: 100 },
+    { x: 250, y: 300 },
+    { x: 350, y: 100 },
+    { x: 450, y: 300 },
+    { x: 550, y: 100 },
+    { x: 650, y: 300 },
+    { x: 750, y: 200 }
+    // Add more points as needed
+  ];
 
   onMount(() => {
-    // plotComplexities("big-o-graph", "Big O Complexity Visualization", "Try hovering over the lines!");
-    // funTable("fun-table");
+
+    svgWidth = window.innerWidth;
+    svgHeight = window.innerHeight;
+
+    // drawPath('#path-svg', pathData, svgWidth, svgHeight);
   });
 
   function handleDonutHover(index) {
@@ -45,7 +64,7 @@
   // If Donut 2 is clicked (index 1), navigate to the new page
   if (index === 1) {
     console.log("Change page!")
-    goto('/About');
+    // goto('/About'); // 404 errors
   }
 
   // Call your function here
@@ -146,6 +165,11 @@
           What is Big O Notation? Why is it important?
         </div>
       {/if}
+      {#if index === 2}
+        <div class="speech-bubble" style={`top: ${top + 20}px; left: 71%;`}>
+          Click me for a graph and table!
+        </div>
+      {/if}
       <!-- Add more conditions for other donuts if needed -->
     {/if}
     <img class="donut"
@@ -156,4 +180,8 @@
       on:mouseout={() => handleDonutOut(index)}
       on:click={() => handleDonutClick(index)}/>
   {/each}
+</div>
+
+<div>
+  <svg id="path-svg" width={svgWidth} height={svgHeight}></svg>
 </div>
