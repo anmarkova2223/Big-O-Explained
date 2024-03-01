@@ -101,21 +101,21 @@ export function plotComplexities(targetElementId, title, instruction) {
     const legendItems = colorLegendGroup.selectAll("g")
     .data(colorData)
     .enter().append("g")
-    .attr("transform", (d, i) => `translate(0, ${i * 20})`);
+    .attr("transform", (d, i) => `translate(0, ${i * 25})`);
 
     legendItems.append("rect")
     .attr("x", 0)
     .attr("y", 0)
-    .attr("width", 10)
-    .attr("height", 10)
+    .attr("width", 20)
+    .attr("height", 20)
     .attr("fill", d => d.color);
 
     legendItems.append("text")
-    .attr("x", 15)
-    .attr("y", 10)
+    .attr("x", 25)
+    .attr("y", 15)
     .text(d => d.text)
     .attr("fill", "black")
-    .attr("font-size", 12);
+    .attr("font-size", 16);
 
     // O(1) line
     const o1Line = g.append("line")
