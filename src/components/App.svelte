@@ -179,23 +179,38 @@
       {/if}
     {#if hovered}
       {#if index === 1}
-        <div class="speech-bubble" style={`top: ${top + 3}px; left: 71%;`}>
+        <div class="speech-bubble" style={`top: ${top + 3}px; left: ${left + 11}%;`}>
           What is Big O Notation? Why is it important?
         </div>
       {/if}
       {#if index === 2}
-        <div class="speech-bubble" style={`top: ${top + 30}px; left: 34%;`}>
+        <div class="speech-bubble" style={`top: ${top + 30}px; left: ${left + 11}%;`}>
           Click me for a graph and table!
         </div>
       {/if}
       {#if index === 3}
-        <div class="speech-bubble" style={`top: ${top + 30}px; left: 63%;`}>
+        <div class="speech-bubble" style={`top: ${top + 30}px; left: ${left + 11}%;`}>
           Let's learn about Constant Time!
         </div>
       {/if}
       {#if index === 4}
-        <div class="speech-bubble" style={`top: ${top + 30}px; left: 65%;`}>
+        <div class="speech-bubble" style={`top: ${top + 30}px; left: ${left + 11}%;`}>
           Let's learn about Logarithmic Time!
+        </div>
+      {/if}
+      {#if index === 5}
+        <div class="speech-bubble" style={`top: ${top + 30}px; left: ${left + 11}%;`}>
+          Let's learn about Linear Time!
+        </div>
+      {/if}
+      {#if index === 6}
+        <div class="speech-bubble" style={`top: ${top + 30}px; left: ${left + 11}%;`}>
+          Let's learn about Quasilinear Time!
+        </div>
+      {/if}
+      {#if index === 7}
+        <div class="speech-bubble" style={`top: ${top + 30}px; left: ${left + 11}%;`}>
+          Let's learn about Quadratic Time!
         </div>
       {/if}
       <!-- Add more conditions for other donuts if needed -->
