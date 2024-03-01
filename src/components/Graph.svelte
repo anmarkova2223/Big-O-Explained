@@ -12,7 +12,7 @@
 </script>
 
 <style>
-  .title-container {
+.title-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -22,10 +22,10 @@
     text-align: center;
     padding: 10px;
   }
-  
+
   .main-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     width: 100vw;
@@ -45,20 +45,20 @@
     overflow-y: auto;
     margin-right: 75px;
   }
+
+  #fun-table {
+    text-align: center;
+  }
 </style>
-
-<div class="title-container">
-  <h1>Big O Notation Explained</h1>
-</div>
-
-<div class="main-container">
-  <div id="big-o-graph">
-    <!-- Your big-o-graph component here -->
-  </div>
-
-  <div id="fun-table-container">
-    <div id="fun-table">
-      <!-- Your table component here -->
+  
+  <div class="main-container">
+    <div id="big-o-graph">
+      <!-- Your big-o-graph component here -->
+    </div>
+  
+    <div id="fun-table-container">
+      <div id="fun-table">
+        <!-- Your table component here -->
+      </div>
     </div>
   </div>
-</div>

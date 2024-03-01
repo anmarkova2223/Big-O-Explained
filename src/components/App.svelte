@@ -3,8 +3,8 @@
 
   import { goto } from '$app/navigation';
 
-  import { funTable } from './funTable.js'
-  import { plotComplexities } from './cheatSheet.js';
+  // import { funTable } from './funTable.js'
+  // import { plotComplexities } from './cheatSheet.js';
   import { drawPath } from './path.js';
 
   import donutWave from '../lib/donut-wave.png';
@@ -76,7 +76,7 @@
 </script>
 
 <style>
-  .title-container {
+  /* .title-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -112,7 +112,7 @@
 
   #fun-table {
     text-align: center;
-  }
+  } */
 
   .donut {
     height: auto;
@@ -141,21 +141,22 @@
   }
 </style>
 
-<div class="title-container">
+<!-- <div class="title-container">
   <h1>Big O Notation Explained</h1>
 </div>
 
 <div class="main-container">
   <div id="big-o-graph">
-    <!-- Your big-o-graph component here -->
+    Your big-o-graph component here
   </div>
 
   <div id="fun-table-container">
     <div id="fun-table">
-      <!-- Your table component here -->
-    </div>
-  </div>
+      Your table component here -->
+    <!-- </div>
+  </div> -->
 
+<div>
   {#each donuts as { src, top, left, width, hovered, clicked }, index}
     {#if index === 0}
         <div class="speech-bubble" style={`top: ${top + 30}px; left: ${left + 11}%;`}>
