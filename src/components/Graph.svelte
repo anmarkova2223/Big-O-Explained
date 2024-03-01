@@ -3,6 +3,8 @@
     import { funTable } from './funTable.js'
     import { plotComplexities } from './cheatSheet.js';
 
+    console.log('Graph.svelte loaded');
+
     onMount(() => {
 
         plotComplexities("big-o-graph", "Big O Complexity Visualization", "Try hovering over the lines!");
