@@ -72,7 +72,9 @@
   else if (index == 3) {
     goto('/constant');
   }
-
+  else if (index == 4) {
+    goto('/logarithmic');
+  }
   // Call your function here
   console.log("Donut clicked!");
 }
