@@ -76,7 +76,7 @@
 </script>
 
 <style>
-  /* .title-container {
+.title-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -86,7 +86,7 @@
     text-align: center;
     padding: 10px;
   }
-
+  /* 
   .main-container {
     display: flex;
     flex-direction: column;
@@ -141,10 +141,10 @@
   }
 </style>
 
-<!-- <div class="title-container">
+<div class="title-container">
   <h1>Big O Notation Explained</h1>
 </div>
-
+<!-- 
 <div class="main-container">
   <div id="big-o-graph">
     Your big-o-graph component here
