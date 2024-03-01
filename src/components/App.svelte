@@ -64,25 +64,25 @@
   // If Donut 2 is clicked (index 1), navigate to the new page
   if (index === 1) {
     console.log("Change page!")
-    goto('/about'); //on github need to have /Big-O-Explained/about
+    goto('about');
   }
   else if (index == 2) {
-    goto('/graph');
+    goto('graph');
   }
   else if (index == 3) {
-    goto('/constant');
+    goto('constant');
   }
   else if (index == 4) {
-    goto('/logarithmic');
+    goto('logarithmic');
   }
   else if (index == 5) {
-    goto('/linear');
+    goto('linear');
   }
   else if (index == 6) {
-    goto('/quasilinear');
+    goto('quasilinear');
   }
   else if (index == 7) {
-    goto('/quadratic')
+    goto('quadratic')
   }
   // Call your function here
   console.log("Donut clicked!");
