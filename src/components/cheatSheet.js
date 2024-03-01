@@ -25,7 +25,7 @@ export function plotComplexities(targetElementId, title, instruction) {
     // Keep inner dimensions unchanged
     const width = 800; // Inner width
     const height = 600; // Inner height
-    const margin = { top: 130, right: 50, bottom: 50, left: 100 };
+    const margin = { top: 128, right: 50, bottom: 50, left: 100 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
