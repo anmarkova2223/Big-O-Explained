@@ -66,8 +66,11 @@
     console.log("Change page!")
     goto('/about'); // 404 errors
   }
-  if (index == 2) {
+  else if (index == 2) {
     goto('/graph');
+  }
+  else if (index == 3) {
+    goto('/constant');
   }
 
   // Call your function here
