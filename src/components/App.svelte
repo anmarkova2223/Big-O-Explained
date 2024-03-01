@@ -64,7 +64,10 @@
   // If Donut 2 is clicked (index 1), navigate to the new page
   if (index === 1) {
     console.log("Change page!")
-    // goto('/About'); // 404 errors
+    goto('/about'); // 404 errors
+  }
+  if (index == 2) {
+    goto('/graph');
   }
 
   // Call your function here
