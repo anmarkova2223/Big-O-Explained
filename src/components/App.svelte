@@ -16,13 +16,13 @@
 
   let donuts = [
     { src: donutWave, top: 100, left: 35, width: 150 },
-    { src: donutThinkRight, top: 300, left: 60, width: 130 },
-    { src: donutHypeClosed, top: 500, left: 20, width: 150 },
-    { src: donutHypeOpen, top: 250, left: 100, width: 150 },
-    { src: donutWave, top: 350, left: 100, width: 150 },
-    { src: donutWaveLeft, top: 450, left: 100, width: 140 },
-    { src: donutThinkRight, top: 550, left: 100, width: 130 },
-    { src: donutThinkLeft, top: 650, left: 100, width: 120 }
+    { src: donutThinkRight, top: 225, left: 60, width: 130 },
+    { src: donutHypeClosed, top: 325, left: 20, width: 150 },
+    { src: donutWaveLeft, top: 425, left: 45, width: 140 },
+    { src: donutHypeOpen, top: 525, left: 70, width: 150 },
+    { src: donutWave, top: 650, left: 45, width: 150 },
+    { src: donutWaveLeft, top: 750, left: 20, width: 140 },
+    { src: donutThinkLeft, top: 900, left: 46, width: 120 }
   ];
 
   let greeting = "Welcome! My name is Big O. To get started click on my dopplegangers to learn more about Big O Notation.";
@@ -155,19 +155,29 @@
 
   {#each donuts as { src, top, left, width, hovered, clicked }, index}
     {#if index === 0}
-        <div class="speech-bubble" style={`top: ${top + 20}px; left: 48%;`}>
+        <div class="speech-bubble" style={`top: ${top + 30}px; left: ${left + 11}%;`}>
           Welcome! My name is Big O. To get started click on my dopplegangers to learn more about Big O Notation.
         </div>
       {/if}
     {#if hovered}
       {#if index === 1}
-        <div class="speech-bubble" style={`top: ${top + 20}px; left: 71%;`}>
+        <div class="speech-bubble" style={`top: ${top + 3}px; left: 71%;`}>
           What is Big O Notation? Why is it important?
         </div>
       {/if}
       {#if index === 2}
-        <div class="speech-bubble" style={`top: ${top + 20}px; left: 71%;`}>
+        <div class="speech-bubble" style={`top: ${top + 30}px; left: 34%;`}>
           Click me for a graph and table!
+        </div>
+      {/if}
+      {#if index === 3}
+        <div class="speech-bubble" style={`top: ${top + 30}px; left: 63%;`}>
+          Let's learn about Constant Time!
+        </div>
+      {/if}
+      {#if index === 4}
+        <div class="speech-bubble" style={`top: ${top + 30}px; left: 65%;`}>
+          Let's learn about Logarithmic Time!
         </div>
       {/if}
       <!-- Add more conditions for other donuts if needed -->
