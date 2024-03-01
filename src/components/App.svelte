@@ -64,7 +64,7 @@
   // If Donut 2 is clicked (index 1), navigate to the new page
   if (index === 1) {
     console.log("Change page!")
-    goto('/about');
+    goto('/about'); //on github need to have /Big-O-Explained/about
   }
   else if (index == 2) {
     goto('/graph');
