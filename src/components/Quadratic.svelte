@@ -45,12 +45,21 @@
     <p>Some common algorithms that are in Quadratic time are bubble sort, selection sort, insertion sort, and matrix multiplication.</p>
     <pre>
         <code class="language-python">
+<<<<<<< Updated upstream
 # Here is a simple example of code
   that runs in quadratic time!
 
 for element1 in arr1:
     for element2 in arr2:
         print(element1, element2)
+=======
+        # Here is a simple example of code
+        that runs in quadratic time!
+        
+        for element1 in arr1:
+            for element2 in arr2:
+                print(element1, element2)
+>>>>>>> Stashed changes
         </code>
     </pre>
 
