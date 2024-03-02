@@ -1,30 +1,25 @@
 <script>
-    import { onMount } from 'svelte';
-    import { funTable } from './funTable.js'
-    import { plotComplexities } from './cheatSheet.js';
+  import { onMount } from 'svelte';
+  import { funTable } from './funTable.js';
+  import { plotComplexities } from './cheatSheet.js';
+  import { goto } from '$app/navigation';
+  import donutHype from '../lib/donut-hype-eyes-open.png';
 
-    console.log('Graph.svelte loaded');
+  function handleDonutClick() {
+      // Navigate to the desired location when the donut image is clicked
+      console.log("Back to homepage!");
+      goto('/');
+  }
 
-    onMount(() => {
+  console.log('Graph.svelte loaded');
 
-        plotComplexities("big-o-graph", "Big O Complexity Visualization", "Try hovering over the lines!");
-        funTable("fun-table");
-    });
-
+  onMount(() => {
+      plotComplexities("big-o-graph", "Big O Complexity Visualization", "Try hovering over the lines!");
+      funTable("fun-table");
+  });
 </script>
 
 <style>
-.title-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color:#99CCFF;
-    z-index: 1;
-    text-align: center;
-    padding: 10px;
-  }
-
   .main-container {
     display: flex;
     flex-direction: row;
@@ -41,26 +36,60 @@
 
   #fun-table-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex: 1;
     overflow-y: auto;
-    margin-right: 75px;
+    margin-right: 70px;
+    height: 100%;
   }
 
   #fun-table {
     text-align: center;
   }
+
+  .donut-container {
+    position: relative;
+  }
+
+  .speech-bubble {
+    position: absolute;
+    max-width: 300px;
+    background-color: #CCCCCC;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    white-space: normal;
+    transform: translateY(-50%);
+  }
+
+  .speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: 150%;
+    left: 46%;
+    margin-top: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #CCCCCC;
+    transform: rotate(90deg);
+  }
 </style>
-  
-  <div class="main-container">
-    <div id="big-o-graph">
+
+<div class="main-container">
+  <div id="big-o-graph">
       <!-- Your big-o-graph component here -->
-    </div>
-  
-    <div id="fun-table-container">
-      <div id="fun-table">
-        <!-- Your table component here -->
-      </div>
-    </div>
   </div>
+
+  <div id="fun-table-container" class="donut-container">
+      <div id="fun-table">
+          <!-- Your table component here -->
+          <img src={donutHype} alt="Donut Image" style="width: 200px;" on:click={handleDonutClick}>
+          <div class="speech-bubble" style={`top: 10%; left: 23%;`}>
+            <!-- Your speech bubble content here -->
+            Click me to go back to the home page!
+          </div>
+      </div>
+  </div>
+</div>

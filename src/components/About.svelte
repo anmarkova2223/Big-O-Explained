@@ -13,15 +13,71 @@
 
   console.log('About.svelte loaded');
 </script>
+
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 40px;
+    height: 100%; /* Ensure the container takes up the full height */
+  }
+
+  /* Adjust the pre element styles if needed */
+  pre {
+      margin: 0;
+      padding: 5px;
+      background-color: #f4f4f4;
+      border-radius: 5px;
+      overflow-x: auto;
+      display: flex;
+      justify-content: center;
+  }
+
+  pre code {
+      text-align: left; /* Ensure code is left-aligned */
+  }
+
+  ul {
+      list-style-type: disc; /* Set the bullet style */
+      text-align: center; /* Align the text to the left */
+      padding-left: 0; /* Remove default padding */
+  }
+
+  li {
+      margin-left: 20px; /* Adjust the space between bullet and text */
+  }
+</style>
   
-<main style="text-align:center; padding: 0 40px;">
+<main class="container">
     <h1>What is Big O Notation?</h1>
     <p>Big O notation is a fundamental tool used to analyze the cost of an algorithm. It gives the upper-bound runtime or worst-case complexity of an algorithm. This allows one to classify algorithms depending on their run time or space requirements. Big O notation was invented by Paul Bachmann, Edmund Landau, and others. It is also called Bachmann-Landau notation or asymptotic notation. The letter “n” represents the input size (this can be the length of a list of a given integer).</p>
     <h2>Here is the formal definition:</h2>
     <p><Katex>f(N) = O(g(N))</Katex> if there exists possible constants <Katex>c</Katex>, <Katex>N_{0}</Katex> such that <Katex>f(N) \leq c * g(N)</Katex> for all <Katex>N \geq N_{0}</Katex>.</p>
-    <h1>Why is Big O Notation Important?</h1>
+    <h2>Why is Big O Notation Important?</h2>
     <p>Big O Notation is essential if you want to know how algorithms will scale. For example, if you are designing a big website and have a lot of users the time it takes to handle those requests are important. You need to know how to store all of this data efficiently, so when you write code it does not take a million years to run. Big O Notation gives you a high level idea of which algorithms are fast or slow and the tradeoffs.</p>
-    <h1>Fun fact!</h1>
+    <h2>Big O Notation Rules:</h2>
+    <ul>
+      <li>If your algorithm has multiple sections to it that utilize <Katex>n</Katex> that are not nested together then you add the functions. Big O for the algorithm is the portion that takes the longest time (is the slowest).</li>
+      <pre>
+        <code class="language-python">
+# n is 5 (length of the list)
+lst = [1, 2, 3, 4, 5]
+
+# 
+total = 0
+for elem in lst:
+  total += elem
+
+print(total)
+        </code>
+    </pre>
+      <li>Second item</li>
+      <li>Third item</li>
+    </ul>
+    <h2>Fun fact!</h2>
     <p>Big O is modeled after Edmund Landau! This picture of Landau is from Wikipedia. Go ahead and click on Big O to return to the main page.</p>
     <div style="display: flex; justify-content: center;">
       <div style="display: flex; flex-direction: row; align-items: center;">
