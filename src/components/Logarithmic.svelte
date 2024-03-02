@@ -1,6 +1,14 @@
 <!-- src/routes/About.svelte -->
 <script>
     console.log('Logarithmic.svelte loaded');
+
+    import donutWave from '../lib/donut-wave.png';
+    import { goto } from '$app/navigation';
+
+    function handleDonutClick() {
+    console.log("Back to homepage!")
+    goto('homepage');
+  }
 </script>
 
 <style>
@@ -57,4 +65,5 @@
 
         </code>
     </pre>
+    <img src={donutWave} alt="Donut Image" style="width: 150px;" on:click={handleDonutClick}>
 </main>

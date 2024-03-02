@@ -1,6 +1,13 @@
 <!-- src/routes/About.svelte -->
 <script>
     console.log('Quadratic.svelte loaded');
+    import donutThinkRight from '../lib/donut-think-right.png';
+    import { goto } from '$app/navigation';
+
+    function handleDonutClick() {
+    console.log("Back to homepage!")
+    goto('homepage');
+  }
 </script>
 
 <style>
@@ -40,7 +47,7 @@
         <code class="language-python">
 # Here is a simple example of code
   that runs in quadratic time!
-  
+
 for element1 in arr1:
     for element2 in arr2:
         print(element1, element2)
@@ -68,5 +75,5 @@ for element1 in arr1:
 
         </code>
     </pre>
-
+    <img src={donutThinkRight} alt="Donut Image" style="width: 150px;" on:click={handleDonutClick}>
 </main>

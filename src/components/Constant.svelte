@@ -1,6 +1,14 @@
 <!-- src/routes/About.svelte -->
 <script>
     console.log('Constant.svelte loaded');
+
+    import donutHype from '../lib/donut-hype-eyes-open.png';
+    import { goto } from '$app/navigation';
+
+    function handleDonutClick() {
+    console.log("Back to homepage!")
+    goto('homepage');
+  }
 </script>
 
 <style>
@@ -65,4 +73,5 @@
         
         </code>
     </pre>
+    <img src={donutHype} alt="Donut Image" style="width: 150px;" on:click={handleDonutClick}>
 </main>

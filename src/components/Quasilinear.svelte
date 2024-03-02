@@ -1,6 +1,13 @@
 <!-- src/routes/About.svelte -->
 <script>
     import Katex from "svelte-katex";
+    import donutWaveLeft from '../lib/donut-wave-left.png';
+    import { goto } from '$app/navigation';
+
+    function handleDonutClick() {
+    console.log("Back to homepage!")
+    goto('homepage');
+  }
 
     console.log('Quasilinear.svelte loaded');
 </script>
@@ -49,4 +56,5 @@ def find_max_recursive(arr, start, end):
     return max(max_left, max_right)
         </code>
     </pre>
+    <img src={donutWaveLeft} alt="Donut Image" style="width: 150px;" on:click={handleDonutClick}>
 </main>
