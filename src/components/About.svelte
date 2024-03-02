@@ -22,7 +22,7 @@
     <h1>Why is Big O Notation Important?</h1>
     <p>Big O Notation is essential if you want to know how algorithms will scale. For example, if you are designing a big website and have a lot of users the time it takes to handle those requests are important. You need to know how to store all of this data efficiently, so when you write code it does not take a million years to run. Big O Notation gives you a high level idea of which algorithms are fast or slow and the tradeoffs.</p>
     <h1>Fun fact!</h1>
-    <p>Big O is modeled after Edmund Landau from Wikipedia! Go ahead and click on him to return to the main page.</p>
+    <p>Big O is modeled after Edmund Landau! This picture of Landau is from Wikipedia. Go ahead and click on Big O to return to the main page.</p>
     <div style="display: flex; justify-content: center;">
       <div style="display: flex; flex-direction: row; align-items: center;">
           <img src={edmund} alt="Picture of Edmund Landau From Wikipedia" style="margin-right: 20px;">
