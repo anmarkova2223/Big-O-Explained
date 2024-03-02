@@ -40,13 +40,13 @@
 </style>
 
 <main class="container">
-    <h1>Linear Time</h1>
+    <h1 style="text-align: center;">Linear Time</h1>
 
     <p>An algorithm is said to have a linear time complexity when the running time increases linearly with the length of the input.</p>
     <p>When the function involves checking all the values in input data, with this order O(n).</p>
     <p>In other words, the run time will linearly increase based on the length of the input.</p>
 
-    <h2>Examples</h2>
+    <h2 style="text-align: center;">Examples</h2>
 
     <p>The time complexity of any command or method that involves checking the length of a list, tuple, string, or any python object is O(n).</p>
     <p>This is because under the hood, python is going through every element in the list (for example) and counting how many elements there are. Therefore, the larger the size of the list, the longer it will take to count the elements in it.</p>
@@ -81,5 +81,6 @@
 
         </code>
     </pre>
-    <img src={donutHypeClosed} alt="Donut Image" style="width: 150px;" on:click={handleDonutClick}>
+    <p style="text-align: center;">Great work! Click on the donut to go back to the home page!</p>
+    <img src={donutHypeClosed} alt="Donut Image" style="width: 150px;display: block; margin-left: auto; margin-right: auto;" on:click={handleDonutClick}>
 </main>

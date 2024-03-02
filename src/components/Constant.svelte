@@ -73,5 +73,6 @@
         
         </code>
     </pre>
+    <p style="text-align: center;">Great work! Click on the donut to go back to the home page!</p>
     <img src={donutHype} alt="Donut Image" style="width: 150px;" on:click={handleDonutClick}>
 </main>

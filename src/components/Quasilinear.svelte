@@ -41,9 +41,9 @@
 </style>
 
 <main class="container">
-    <h1>Quasilinear Time</h1>
+    <h1 style="text-align: center;">Quasilinear Time</h1>
     <p>More complex than <Katex>O(n)</Katex>, but less complex than <Katex>O(n^2)</Katex>.</p>
-    <p>Examples:</p>
+    <h2 style="text-align: center;">Examples:</h2>
     <p>Some common algorithms that are <Katex>O(n log(n))</Katex> are merge sort, quicksort, and operations on a self-balancing binary search tree.</p>
     <pre>
         <code class="language-python">
@@ -56,5 +56,6 @@ def find_max_recursive(arr, start, end):
     return max(max_left, max_right)
         </code>
     </pre>
-    <img src={donutWaveLeft} alt="Donut Image" style="width: 150px;" on:click={handleDonutClick}>
+    <p style="text-align: center;">Great work! Click on the donut to go back to the home page!</p>
+    <img src={donutWaveLeft} alt="Donut Image" style="width: 150px;display: block; margin-left: auto; margin-right: auto;" on:click={handleDonutClick}>
 </main>
