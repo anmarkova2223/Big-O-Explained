@@ -100,33 +100,6 @@
     text-align: center;
     padding: 10px;
   }
-  /* 
-  .main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-  }
-
-  #big-o-graph {
-    flex: 2;
-    overflow: auto;
-  }
-
-  #fun-table-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    overflow-y: auto;
-    margin-right: 75px;
-  }
-
-  #fun-table {
-    text-align: center;
-  } */
 
   .donut {
     height: auto;
@@ -158,17 +131,6 @@
 <div class="title-container">
   <h1>Big O Notation Explained</h1>
 </div>
-<!-- 
-<div class="main-container">
-  <div id="big-o-graph">
-    Your big-o-graph component here
-  </div>
-
-  <div id="fun-table-container">
-    <div id="fun-table">
-      Your table component here -->
-    <!-- </div>
-  </div> -->
 
 <div>
   {#each donuts as { src, top, left, width, hovered, clicked }, index}
