@@ -5,6 +5,9 @@
     import donutHype from '../lib/donut-hype-eyes-open.png';
     import { goto } from '$app/navigation';
 
+    import Katex from 'svelte-katex';
+    import 'katex/dist/katex.min.css'; //having this is what makes the math format nicely
+
     function handleDonutClick() {
     console.log("Back to homepage!")
     goto('homepage');
