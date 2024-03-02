@@ -8,7 +8,7 @@
   function handleDonutClick() {
     // Navigate to the desired location when the donut image is clicked
     console.log("Back to homepage!")
-    window.location.href = '/';
+    goto('/');
   }
 
   console.log('About.svelte loaded');
