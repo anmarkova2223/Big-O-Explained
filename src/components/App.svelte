@@ -229,14 +229,13 @@
 </div>
 
 <div>
-  <svg id="path-svg" width={svgWidth} height={svgHeight} viewBox="0 0 1500 1700">
+  <svg id="path-svg" width={svgWidth} height={svgHeight}>
     <g>
       <path bind:this={root} id="myPath" transition:draw={{ duration: 1500 }}
         d={generatePathString(pathData)}
         fill="none"
         stroke="black"
         stroke-width="5px"
-        stroke-dashoffset=totalLength
       />
     </g>
   </svg>
