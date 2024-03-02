@@ -43,9 +43,6 @@
     <p>The time complexity of a line initializing a variable is constant. Examples:</p>
     <pre>
         <code class="language-python">
-<<<<<<< Updated upstream
-print("hello")
-=======
 
         x = 1 # The time complexity of this line is O(1)!
 
@@ -54,7 +51,7 @@ print("hello")
         y = 'hello!' # also this one! 
         
         # some other examples:
-        if a > b: # this is O(1) because we are simply comparing a and b
+        if a &gt; b: # this is O(1) because we are simply comparing a and b
             return True # simply returning true also takes O(1)
         else:
             return False
@@ -66,7 +63,6 @@ print("hello")
             if i == 0: 
                 break
         
->>>>>>> Stashed changes
         </code>
     </pre>
 </main>
