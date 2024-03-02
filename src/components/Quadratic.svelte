@@ -46,4 +46,27 @@ for element1 in arr1:
         print(element1, element2)
         </code>
     </pre>
+
+    <p>Quadratic time complexity occurs when the runtime scales quadratically with the input. </p>
+    <p>As the input size increases, the runtime of the algorithm also increases in a quadratic fashion (i.e. the runtime is proportional to the square of the input size).</p>
+
+    <h2>Examples</h2>
+    <pre>
+        <code class="language-python">
+    
+            def example(input_list): # explanation: TODO
+                n = len(input_list)
+                for i in range(n):
+                    for j in range(n):
+                        print(input_list[i], input_list[j])
+
+            # some other examples:
+            TODO
+            
+            # another example: 
+            TODO
+
+        </code>
+    </pre>
+
 </main>

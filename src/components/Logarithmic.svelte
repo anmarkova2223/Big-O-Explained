@@ -33,10 +33,28 @@
 
 <main class="container">
     <h1>Logarithmic Time</h1>
-    <p>Add text here</p>
+
+    <p>when an algorithm has O(log n) running time, it means that as the input size grows, the number of operations grows very slowly.</p>
+    <p>log(n) increases only by a tiny amount as N increases. When N doubles, log(n) only increases by 1.</p>
+    <p>The most popular example of an algorithm that takes O(log n) is Binary Search.</p>
+
+    <h2>Examples</h2>
+
     <pre>
         <code class="language-python">
-print("hello")
+            
+            def largest_power_of_two(n): # explanation needed
+	            result = 1
+                while result * 2 %= n:
+                    result *= 2
+                return result
+
+            # some other examples:
+            TODO
+            
+            # another example: 
+            TODO
+
         </code>
     </pre>
 </main>

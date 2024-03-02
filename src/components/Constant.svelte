@@ -33,10 +33,40 @@
 
 <main class="container">
     <h1>Constant Time</h1>
-    <p>Add text here</p>
+    <p>The easiest time complexity!</p>
+    <p>When the algorithm is not dependent on the input size, it has constant time complexity. i.e., the runtime will always be the same regardless of the input size.</p>
+
+    <br>
+
+    <h2>Examples</h2>
+
+    <p>The time complexity of a line initializing a variable is constant. Examples:</p>
     <pre>
         <code class="language-python">
+<<<<<<< Updated upstream
 print("hello")
+=======
+
+        x = 1 # The time complexity of this line is O(1)!
+
+        lst = [1, 2, 3] # and so is this one.
+
+        y = 'hello!' # also this one! 
+        
+        # some other examples:
+        if a > b: # this is O(1) because we are simply comparing a and b
+            return True # simply returning true also takes O(1)
+        else:
+            return False
+        
+        # another example: 
+        lst = [1, 2, 3, 4] # remember, initializing a varable only takes O(1)
+        i = 0 # O(1)
+        while i &lt; range(4): # here we are simply comparing a constant value to another, which also takes O(1)
+            if i == 0: 
+                break
+        
+>>>>>>> Stashed changes
         </code>
     </pre>
 </main>
