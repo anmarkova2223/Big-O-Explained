@@ -33,7 +33,7 @@
 
 <main class="container">
     <h1>Constant Time</h1>
-    <p>The easiest time complexity!</p>
+    <p>The easiest and best time complexity!</p>
     <p>When the algorithm is not dependent on the input size, it has constant time complexity. i.e., the runtime will always be the same regardless of the input size.</p>
 
     <br>

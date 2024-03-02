@@ -1,5 +1,7 @@
 <!-- src/routes/About.svelte -->
 <script>
+    import Katex from "svelte-katex";
+
     console.log('Quasilinear.svelte loaded');
 </script>
 
@@ -33,10 +35,18 @@
 
 <main class="container">
     <h1>Quasilinear Time</h1>
-    <p>Add text here</p>
+    <p>More complex than <Katex>O(n)</Katex>, but less complex than <Katex>O(n^2)</Katex>.</p>
+    <p>Examples:</p>
+    <p>Some common algorithms that are <Katex>O(n log(n))</Katex> are merge sort, quicksort, and operations on a self-balancing binary search tree.</p>
     <pre>
         <code class="language-python">
-print("hello")
+def find_max_recursive(arr, start, end):
+    if start == end:
+        return arr[start]
+    mid = (start + end) // 2
+    max_left = find_max_recursive(arr, start, mid)
+    max_right = find_max_recursive(arr, mid + 1, end)
+    return max(max_left, max_right)
         </code>
     </pre>
 </main>
