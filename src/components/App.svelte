@@ -1,11 +1,14 @@
 <script>
   import { onMount } from 'svelte';
+  import {draw} from 'svelte/transition'
+
 
   import { goto } from '$app/navigation';
 
   // import { funTable } from './funTable.js'
   // import { plotComplexities } from './cheatSheet.js';
   import { drawPath } from './path.js';
+  let root;
 
   import donutWave from '../lib/donut-wave.png';
   import donutWaveLeft from '../lib/donut-wave-left.png';
@@ -31,24 +34,57 @@
   let svgHeight;
 
   let pathData = [
-    { x: 600, y: 0 },
-    { x: 150, y: 100 },
-    { x: 250, y: 300 },
-    { x: 350, y: 100 },
-    { x: 450, y: 300 },
-    { x: 550, y: 100 },
-    { x: 650, y: 300 },
-    { x: 750, y: 200 }
+    { x: 600, y: 200 },
+    { x: 900, y: 300 },
+    { x: 350, y: 450 },
+    { x: 700, y: 500 },
+    { x: 1050, y: 600 },
+    { x: 700, y: 750 },
+    { x: 350, y: 850 },
+    { x: 700, y: 1000 }
     // Add more points as needed
   ];
+  function generatePathString(pathData) {
+    let path = [
+      {M: "600 200"},
+      {c: "1.5 3.5 274 -11.5 350 100"},
+      {}
+    ]
+
+    return "M 600 200 c 1.5 3.5 274 -11.5 350 100" + 
+    "c -9.43 12.28 -289.58 4.73 -600.1 100" + 
+    "c 11.69 53.47 346.44 7.02 750.08 200" + 
+    "c .71 146.16 -100 -8.34 -700.97 250" +
+    "c 9.06 67.54 304.65 46.22 350.99 116.39";
+    //return "M" + pathData.map(point => `${point.x},${point.y}`).join(' ');
+  }
 
   onMount(() => {
 
     svgWidth = window.innerWidth;
-    svgHeight = window.innerHeight;
+    svgHeight = window.outerHeight * 2;
+    console.log(svgHeight);
 
-    // drawPath('#path-svg', pathData, svgWidth, svgHeight);
+    let totalLength = root.getTotalLength();
+    root.style.strokeDasharray = totalLength + ' ' + totalLength;
+    root.style.strokeDashoffset = totalLength;
+    root.getBoundingClientRect();
+    window.addEventListener("scroll", function(e) {
+      var scrollPercentage = 2* (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+      var drawLength = totalLength * scrollPercentage;
+      root.style.strokeDashoffset = totalLength - drawLength;
+
+      if (scrollPercentage >= 0.99) {
+        root.style.strokeDasharray = "none";
+        
+      } else {
+        root.style.strokeDasharray = totalLength + ' ' + totalLength;
+      }
+    });
+
+    //drawPath('#path-svg', pathData, svgWidth, svgHeight);
   });
+  
 
   function handleDonutHover(index) {
     donuts[index].hovered = true;
@@ -87,6 +123,7 @@
   // Call your function here
   console.log("Donut clicked!");
 }
+
 </script>
 
 <style>
@@ -126,8 +163,12 @@
     border-style: solid;
     border-color: transparent transparent transparent #CCCCCC
   }
-</style>
 
+  svg {
+		outline: solid lightgray 1px;
+  }
+
+</style>
 <div class="title-container">
   <h1>Big O Notation Explained</h1>
 </div>
@@ -188,5 +229,15 @@
 </div>
 
 <div>
-  <svg id="path-svg" width={svgWidth} height={svgHeight}></svg>
+  <svg id="path-svg" width={svgWidth} height={svgHeight} viewBox="0 0 1500 1700">
+    <g>
+      <path bind:this={root} id="myPath" transition:draw={{ duration: 1500 }}
+        d={generatePathString(pathData)}
+        fill="none"
+        stroke="black"
+        stroke-width="5px"
+        stroke-dashoffset=totalLength
+      />
+    </g>
+  </svg>
 </div>
