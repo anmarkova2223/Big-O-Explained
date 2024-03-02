@@ -17,7 +17,7 @@ const config = {
 		}),
 		paths: {
 			// base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
-			base: '/Big-O-Explained/',
+			base: '/Big-O-Explained/'
 		},
 	},
 	files: {
