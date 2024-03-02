@@ -95,7 +95,7 @@ print(total)
       <li>We say <Katex>n</Katex> is approaching infinity because we want to see how algorithms scale. This means that constants do not matter when calculating Big O.</li>
         <ul>
           <li>This is to say, we only care about dominant terms and not the coefficients.</li>
-          <li>For example: If you have <Katex>O(3 + 5n + n^2 + 6n^2)</Katex> then the Big O Notation is <Katex>O(n^2)</Katex>. In general we skip ignore the constants. If you did look at constants we know <Katex>6n^2</Katex> will take the longest, but when we ignore the coefficient it becomes <Katex>O(n)</Katex>.</li>
+          <li>For example: If you have <Katex>O(3 + 5n + n^2 + 6n^2)</Katex> then the Big O Notation is <Katex>O(n^2)</Katex>. In general we ignore the constants. If you did look at constants we know <Katex>6n^2</Katex> will take the longest, but when we ignore the coefficient it becomes <Katex>O(n)</Katex>.</li>
         </ul>
       <li>When calculating Big O Notation for recursive functions one should look at where <Katex>n</Katex> is shrinking and calculate by solving recurrences.</li>
       <ul>
