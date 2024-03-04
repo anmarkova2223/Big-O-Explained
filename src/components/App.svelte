@@ -28,7 +28,8 @@
     { src: donutThinkLeft, top: 900, left: 46, width: 120 },
     { src: donutHypeClosed, top: 1025, left: 70, width: 150 },
     { src: donutWaveLeft, top: 1150, left: 45, width: 140 },
-    { src: donutWaveLeft, top: 1275, left: 20, width: 140 },
+    { src: donutThinkRight, top: 1275, left: 20, width: 130 },
+    { src: donutHypeOpen, top: 1400, left: 45, width: 150 },
   ];
 
   let greeting = "Welcome! My name is Big O. To get started click on my dopplegangers to learn more about Big O Notation.";
@@ -131,6 +132,9 @@
   }
   else if (index == 10) {
     goto('factorial')
+  }
+  else if (index == 11) {
+    goto('sources')
   }
   // Call your function here
   console.log("Donut clicked!");
@@ -241,6 +245,11 @@
       {#if index === 10}
         <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
           Let's learn about Factorial Time!
+        </div>
+      {/if}
+      {#if index === 11}
+        <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
+          Our Sources
         </div>
       {/if}
       <!-- Add more conditions for other donuts if needed -->

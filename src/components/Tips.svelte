@@ -12,7 +12,7 @@
       goto('homepage');
     }
   
-    console.log('About.svelte loaded');
+    console.log('Tips.svelte loaded');
   </script>
   
   <style>
