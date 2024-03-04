@@ -24,8 +24,11 @@
     { src: donutWaveLeft, top: 425, left: 45, width: 140 },
     { src: donutHypeOpen, top: 525, left: 70, width: 150 },
     { src: donutWave, top: 650, left: 45, width: 150 },
-    { src: donutWaveLeft, top: 750, left: 20, width: 140 },
-    { src: donutThinkLeft, top: 900, left: 46, width: 120 }
+    { src: donutWaveLeft, top: 775, left: 20, width: 140 },
+    { src: donutThinkLeft, top: 900, left: 46, width: 120 },
+    { src: donutHypeClosed, top: 1025, left: 70, width: 150 },
+    { src: donutWaveLeft, top: 1150, left: 45, width: 140 },
+    { src: donutWaveLeft, top: 1275, left: 20, width: 140 },
   ];
 
   let greeting = "Welcome! My name is Big O. To get started click on my dopplegangers to learn more about Big O Notation.";
@@ -103,22 +106,31 @@
     goto('about');
   }
   else if (index == 2) {
-    goto('graph');
+    goto('tips'); //Go to tips page
   }
   else if (index == 3) {
-    goto('constant');
+    goto('graph');
   }
   else if (index == 4) {
-    goto('logarithmic');
+    goto('constant');
   }
   else if (index == 5) {
-    goto('linear');
+    goto('logarithmic');
   }
   else if (index == 6) {
-    goto('quasilinear');
+    goto('linear');
   }
   else if (index == 7) {
+    goto('quasilinear');
+  }
+  else if (index == 8) {
     goto('quadratic')
+  }
+  else if (index == 9) {
+    goto('exponential')
+  }
+  else if (index == 10) {
+    goto('factorial')
   }
   // Call your function here
   console.log("Donut clicked!");
@@ -187,33 +199,48 @@
         </div>
       {/if}
       {#if index === 2}
+        <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
+          Let's learn how to calculate Big O!
+        </div>
+      {/if}
+      {#if index === 3}
         <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 13}%;`}>
           Click me for a graph and table!
         </div>
       {/if}
-      {#if index === 3}
+      {#if index === 4}
         <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
           Let's learn about Constant Time!
         </div>
       {/if}
-      {#if index === 4}
+      {#if index === 5}
         <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 12}%;`}>
           Let's learn about Logarithmic Time!
         </div>
       {/if}
-      {#if index === 5}
+      {#if index === 6}
         <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 11}%;`}>
           Let's learn about Linear Time!
         </div>
       {/if}
-      {#if index === 6}
+      {#if index === 7}
         <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 11}%;`}>
           Let's learn about Quasilinear Time!
         </div>
       {/if}
-      {#if index === 7}
+      {#if index === 8}
         <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
           Let's learn about Quadratic Time!
+        </div>
+      {/if}
+      {#if index === 9}
+        <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
+          Let's learn about Exponential Time!
+        </div>
+      {/if}
+      {#if index === 10}
+        <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
+          Let's learn about Factorial Time!
         </div>
       {/if}
       <!-- Add more conditions for other donuts if needed -->
