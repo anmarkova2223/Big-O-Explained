@@ -213,51 +213,51 @@
       {/if}
       {#if index === 3}
         <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 13}%;`}>
-          Click me for a graph and table!
+          Useful Visualizations!
         </div>
       {/if}
       {#if index === 4}
         <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
-          Let's learn about Constant Time!
+          I am in a <i>constant</i> state of sugar-high!
         </div>
       {/if}
       {#if index === 5}
         <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 12}%;`}>
-          Let's learn about Logarithmic Time!
+          Just like the rings on a <i>log</i>, there are O's everywhere!
         </div>
       {/if}
       {#if index === 6}
-        <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 11}%;`}>
-          Let's learn about Linear Time!
+        <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
+          Let me be <i>straight</i> with you... pink is the best color!
         </div>
       {/if}
       {#if index === 7}
-        <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 11}%;`}>
-          Let's learn about Quasilinear Time!
+        <div class="speech-bubble" style={`top: ${top + 30}px; left: ${left + 11}%;`}>
+          I'm not sure of a good pun... anyways <i>quasilinear</i> time!
         </div>
       {/if}
       {#if index === 8}
-        <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
-          Let's learn about Quadratic Time!
+        <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 11}%;`}>
+          Don't be dramatic. It's time for <i>quadratics</i>!
         </div>
       {/if}
       {#if index === 9}
-        <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
-          Let's learn about Exponential Time!
+        <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 11}%;`}>
+          You are improving at an <i>exponential</i> rate!
         </div>
       {/if}
       {#if index === 10}
         <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
-          Let's learn about Factorial Time!
+          Let's face the <i>facts</i>. This is bananas!
         </div>
       {/if}
       {#if index === 11}
         <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
-          Practice Problems
+          Let's get down to business... to defeat the <i>practice problems</i>!
         </div>
       {/if}
       {#if index === 12}
-        <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
+        <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 11}%;`}>
           Our Sources
         </div>
       {/if}
