@@ -24,8 +24,13 @@
     { src: donutWaveLeft, top: 425, left: 45, width: 140 },
     { src: donutHypeOpen, top: 525, left: 70, width: 150 },
     { src: donutWave, top: 650, left: 45, width: 150 },
-    { src: donutWaveLeft, top: 750, left: 20, width: 140 },
-    { src: donutThinkLeft, top: 900, left: 46, width: 120 }
+    { src: donutWaveLeft, top: 775, left: 20, width: 140 },
+    { src: donutThinkLeft, top: 900, left: 46, width: 120 },
+    { src: donutHypeClosed, top: 1025, left: 70, width: 150 },
+    { src: donutWaveLeft, top: 1150, left: 45, width: 140 },
+    { src: donutThinkRight, top: 1275, left: 20, width: 130 },
+    { src: donutHypeOpen, top: 1400, left: 45, width: 150 },
+    { src: donutWave, top: 1550, left: 70, width: 150 }
   ];
 
   let greeting = "Welcome! My name is Big O. To get started click on my dopplegangers to learn more about Big O Notation.";
@@ -103,22 +108,37 @@
     goto('about');
   }
   else if (index == 2) {
-    goto('graph');
+    goto('tips'); //Go to tips page
   }
   else if (index == 3) {
-    goto('constant');
+    goto('graph');
   }
   else if (index == 4) {
-    goto('logarithmic');
+    goto('constant');
   }
   else if (index == 5) {
-    goto('linear');
+    goto('logarithmic');
   }
   else if (index == 6) {
-    goto('quasilinear');
+    goto('linear');
   }
   else if (index == 7) {
+    goto('quasilinear');
+  }
+  else if (index == 8) {
     goto('quadratic')
+  }
+  else if (index == 9) {
+    goto('exponential')
+  }
+  else if (index == 10) {
+    goto('factorial')
+  }
+  else if (index == 11) {
+    goto('practice')
+  }
+  else if (index == 12) {
+    goto('sources')
   }
   // Call your function here
   console.log("Donut clicked!");
@@ -187,33 +207,58 @@
         </div>
       {/if}
       {#if index === 2}
-        <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 13}%;`}>
-          Click me for a graph and table!
+        <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
+          Let's learn how to calculate Big O!
         </div>
       {/if}
       {#if index === 3}
-        <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
-          Let's learn about Constant Time!
+        <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 13}%;`}>
+          Useful Visualizations!
         </div>
       {/if}
       {#if index === 4}
-        <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 12}%;`}>
-          Let's learn about Logarithmic Time!
+        <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
+          I am in a <i>constant</i> state of sugar-high!
         </div>
       {/if}
       {#if index === 5}
-        <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 11}%;`}>
-          Let's learn about Linear Time!
+        <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 12}%;`}>
+          Just like the rings on a <i>log</i>, there are O's everywhere!
         </div>
       {/if}
       {#if index === 6}
-        <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 11}%;`}>
-          Let's learn about Quasilinear Time!
+        <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
+          Let me be <i>straight</i> with you... pink is the best color!
         </div>
       {/if}
       {#if index === 7}
+        <div class="speech-bubble" style={`top: ${top + 30}px; left: ${left + 11}%;`}>
+          I'm not sure of a good pun... anyways <i>quasilinear</i> time!
+        </div>
+      {/if}
+      {#if index === 8}
+        <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 11}%;`}>
+          Don't be dramatic. It's time for <i>quadratics</i>!
+        </div>
+      {/if}
+      {#if index === 9}
+        <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 11}%;`}>
+          You are improving at an <i>exponential</i> rate!
+        </div>
+      {/if}
+      {#if index === 10}
         <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
-          Let's learn about Quadratic Time!
+          Let's face the <i>facts</i>. This is bananas!
+        </div>
+      {/if}
+      {#if index === 11}
+        <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
+          Let's get down to business... to defeat the <i>practice problems</i>!
+        </div>
+      {/if}
+      {#if index === 12}
+        <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 11}%;`}>
+          Our Sources
         </div>
       {/if}
       <!-- Add more conditions for other donuts if needed -->

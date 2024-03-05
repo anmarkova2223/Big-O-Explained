@@ -2,6 +2,9 @@
 <script>
     console.log('Logarithmic.svelte loaded');
 
+    import Katex from 'svelte-katex';
+    import 'katex/dist/katex.min.css'; //having this is what makes the math format nicely
+
     import donutWave from '../lib/donut-wave.png';
     import { goto } from '$app/navigation';
 

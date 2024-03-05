@@ -1,16 +1,19 @@
 <!-- src/routes/About.svelte -->
 <script>
+    console.log('Exponential.svelte loaded');
+
     import Katex from 'svelte-katex';
     import 'katex/dist/katex.min.css'; //having this is what makes the math format nicely
-    import donutWaveLeft from '../lib/donut-wave-left.png';
+
+    import donutHypeClosed from '../lib/donut-hype-eyes-closed.png';
     import { goto } from '$app/navigation';
+
+      import 'katex/dist/katex.min.css'; //having this is what makes the math format nicely
 
     function handleDonutClick() {
     console.log("Back to homepage!")
     goto('homepage');
   }
-
-    console.log('Quasilinear.svelte loaded');
 </script>
 
 <style>
@@ -42,21 +45,8 @@
 </style>
 
 <main class="container">
-    <h1 style="text-align: center;">Quasilinear Time</h1>
-    <p>More complex than <Katex>O(n)</Katex>, but less complex than <Katex>O(n^2)</Katex>.</p>
-    <h2 style="text-align: center;">Examples:</h2>
-    <p>Some common algorithms that are <Katex>O(n log(n))</Katex> are merge sort, quicksort, and operations on a self-balancing binary search tree.</p>
-    <pre>
-        <code class="language-python">
-def find_max_recursive(arr, start, end):
-    if start == end:
-        return arr[start]
-    mid = (start + end) // 2
-    max_left = find_max_recursive(arr, start, mid)
-    max_right = find_max_recursive(arr, mid + 1, end)
-    return max(max_left, max_right)
-        </code>
-    </pre>
+    <h1 style="text-align: center;">Exponential Time</h1>
+
     <p style="text-align: center;">Great work! Click on the donut to go back to the home page!</p>
-    <img src={donutWaveLeft} alt="Donut Image" style="width: 150px;display: block; margin-left: auto; margin-right: auto;" on:click={handleDonutClick}>
+    <img src={donutHypeClosed} alt="Donut Image" style="width: 150px;display: block; margin-left: auto; margin-right: auto;" on:click={handleDonutClick}>
 </main>

@@ -2,8 +2,13 @@
 <script>
     console.log('Linear.svelte loaded');
 
+    import Katex from 'svelte-katex';
+    import 'katex/dist/katex.min.css'; //having this is what makes the math format nicely
+
     import donutHypeClosed from '../lib/donut-hype-eyes-closed.png';
     import { goto } from '$app/navigation';
+
+      import 'katex/dist/katex.min.css'; //having this is what makes the math format nicely
 
     function handleDonutClick() {
     console.log("Back to homepage!")
