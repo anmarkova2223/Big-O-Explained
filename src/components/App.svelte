@@ -30,6 +30,7 @@
     { src: donutWaveLeft, top: 1150, left: 45, width: 140 },
     { src: donutThinkRight, top: 1275, left: 20, width: 130 },
     { src: donutHypeOpen, top: 1400, left: 45, width: 150 },
+    { src: donutWave, top: 1550, left: 70, width: 150 }
   ];
 
   let greeting = "Welcome! My name is Big O. To get started click on my dopplegangers to learn more about Big O Notation.";
@@ -134,6 +135,9 @@
     goto('factorial')
   }
   else if (index == 11) {
+    goto('practice')
+  }
+  else if (index == 12) {
     goto('sources')
   }
   // Call your function here
@@ -248,6 +252,11 @@
         </div>
       {/if}
       {#if index === 11}
+        <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
+          Practice Problems
+        </div>
+      {/if}
+      {#if index === 12}
         <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
           Our Sources
         </div>
