@@ -51,6 +51,22 @@
     { src: donutWaveLeft, top: 1550, left: 70, width: 140 }
   ];
 
+  let donutTexts = [
+    "",
+    "Explanation",
+    "The How",
+    "Graph & Table",
+    "Constant",
+    "Logarithmic",
+    "Linear",
+    "Quasilinear",
+    "Quadratic",
+    "Exponential",
+    "Factorial",
+    "Practice",
+    "Sources"
+  ]
+
   let greeting = "Welcome! My name is Big O. To get started click on my dopplegangers to learn more about Big O Notation.";
   
   let svgWidth;
@@ -202,6 +218,14 @@
     border-color: transparent transparent transparent #CCCCCC
   }
 
+  .label {
+    position: absolute;
+  }
+
+  .arc-text {
+    font-size: 14px;
+  }
+
   svg {
 		outline: solid lightgray 1px;
   }
@@ -228,6 +252,9 @@
         <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
           Let's learn how to calculate Big O!
         </div>
+        <div class="label" style="top:{top + 140}px; left:{left + 3}%">
+          {donutTexts[index]}
+        </div>     
       {/if}
       {#if index === 3}
         <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 13}%;`}>
