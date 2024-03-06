@@ -17,24 +17,36 @@
   import donutThinkLeft from '../lib/donut-think-left.png';
   import donutThinkRight from '../lib/donut-think-right.png';
 
-  import croissant from '../lib/croissant-mascot.png';
-  import logNoAmber from '../lib/log-no-amber.png';
-  import omgBanana from '../lib/omg-banana.png';
-  import sugarCube from '../lib/sugarcube.png'
-  import rocket from '../lib/rocket.png'
+  // No longer using these
+  // import croissant from '../lib/croissant-mascot.png';
+  // import logNoAmber from '../lib/log-no-amber.png';
+  // import omgBanana from '../lib/omg-banana.png';
+  // import sugarCube from '../lib/sugarcube.png'
+  // import rocket from '../lib/rocket.png'
+
+
+  // Line Donuts
+  import quadraticDonut from '../lib/quadratic-donut.png';
+  import exponentialDonut from '../lib/exponential-donut.png';
+  import graphDonut from '../lib/graph-donut.png';
+  import factorialDonut from '../lib/factorial-donut.png';
+  import linearDonut from '../lib/linear-donut.png';
+  import logDonut from '../lib/log-donut.png';
+  import nlognDonut from '../lib/nlogn-donut.png';
+  import constantDonut from '../lib/constant-donut.png';
 
   let donuts = [
     { src: donutWave, top: 100, left: 35, width: 150 },
     { src: donutThinkRight, top: 225, left: 60, width: 130 },
     { src: donutHypeClosed, top: 325, left: 20, width: 150 },
-    { src: donutWaveLeft, top: 425, left: 45, width: 140 },
-    { src: sugarCube, top: 525, left: 70, width: 160 },
-    { src: logNoAmber, top: 650, left: 45, width: 160 },
-    { src: donutHypeOpen, top: 775, left: 20, width: 150 },
-    { src: donutThinkLeft, top: 900, left: 46, width: 120 },
-    { src: croissant, top: 1025, left: 70, width: 160 },
-    { src: rocket, top: 1150, left: 45, width: 150 },
-    { src: omgBanana, top: 1275, left: 20, width: 170 },
+    { src: graphDonut, top: 425, left: 45, width: 180 },
+    { src: constantDonut, top: 525, left: 70, width: 180 },
+    { src: logDonut, top: 650, left: 45, width: 180 },
+    { src: linearDonut, top: 775, left: 20, width: 180 },
+    { src: nlognDonut, top: 900, left: 46, width: 180 },
+    { src: quadraticDonut, top: 1025, left: 70, width: 180 },
+    { src: exponentialDonut, top: 1150, left: 45, width: 180 },
+    { src: factorialDonut, top: 1275, left: 20, width: 180 },
     { src: donutThinkRight, top: 1400, left: 45, width: 130 },
     { src: donutWaveLeft, top: 1550, left: 70, width: 140 }
   ];
