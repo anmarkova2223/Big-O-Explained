@@ -2,7 +2,7 @@ import * as d3 from "d3";
 export function funTable(targetElementId) {
     // Define table data
     const tableData = [
-        { otherName: "Name:", complexity: "Notation:", wayToRemember: "Fun Anecdote:" },
+        { otherName: "Name:", complexity: "Notation:", wayToRemember: "Fun Saying:" },
         { otherName: "Constant Time", complexity: "O(1)", wayToRemember: "O(Yeah!)" },
         { otherName: "Logarithmic Time", complexity: "O(log n)", wayToRemember: "O(Nice)" },
         { otherName: "Linear Time", complexity: "O(n)", wayToRemember: "O(K)" },
