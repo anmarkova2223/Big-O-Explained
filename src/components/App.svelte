@@ -203,7 +203,7 @@
   {#each donuts as { src, top, left, width, hovered, clicked }, index}
     {#if index === 0}
         <div class="speech-bubble" style={`top: ${top + 30}px; left: ${left + 11}%;`}>
-          Welcome! My name is Big O. To get started click on my dopplegangers to learn more about Big O Notation.
+          Welcome! My name is Big O. Follow the path and click my dopplegangers and friends to learn about Big O!
         </div>
       {/if}
     {#if hovered}
