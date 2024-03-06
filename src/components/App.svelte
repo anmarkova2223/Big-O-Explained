@@ -17,19 +17,23 @@
   import donutThinkLeft from '../lib/donut-think-left.png';
   import donutThinkRight from '../lib/donut-think-right.png';
 
+  import croissant from '../lib/croissant-mascot.png';
+  import logNoAmber from '../lib/log-no-amber.png';
+  import omgBanana from '../lib/omg-banana.png';
+
   let donuts = [
     { src: donutWave, top: 100, left: 35, width: 150 },
     { src: donutThinkRight, top: 225, left: 60, width: 130 },
     { src: donutHypeClosed, top: 325, left: 20, width: 150 },
     { src: donutWaveLeft, top: 425, left: 45, width: 140 },
     { src: donutHypeOpen, top: 525, left: 70, width: 150 },
-    { src: donutWave, top: 650, left: 45, width: 150 },
+    { src: logNoAmber, top: 650, left: 45, width: 160 },
     { src: donutWaveLeft, top: 775, left: 20, width: 140 },
     { src: donutThinkLeft, top: 900, left: 46, width: 120 },
-    { src: donutHypeClosed, top: 1025, left: 70, width: 150 },
+    { src: croissant, top: 1025, left: 70, width: 160 },
     { src: donutWaveLeft, top: 1150, left: 45, width: 140 },
-    { src: donutThinkRight, top: 1275, left: 20, width: 130 },
-    { src: donutHypeOpen, top: 1400, left: 45, width: 150 },
+    { src: omgBanana, top: 1275, left: 20, width: 170 },
+    { src: donutThinkRight, top: 1400, left: 45, width: 130 },
     { src: donutWave, top: 1550, left: 70, width: 150 }
   ];
 
