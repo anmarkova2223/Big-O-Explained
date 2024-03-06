@@ -21,6 +21,7 @@
   import logNoAmber from '../lib/log-no-amber.png';
   import omgBanana from '../lib/omg-banana.png';
   import sugarCube from '../lib/sugarcube.png'
+  import rocket from '../lib/rocket.png'
 
   let donuts = [
     { src: donutWave, top: 100, left: 35, width: 150 },
@@ -32,10 +33,10 @@
     { src: donutHypeOpen, top: 775, left: 20, width: 150 },
     { src: donutThinkLeft, top: 900, left: 46, width: 120 },
     { src: croissant, top: 1025, left: 70, width: 160 },
-    { src: donutWaveLeft, top: 1150, left: 45, width: 140 },
+    { src: rocket, top: 1150, left: 45, width: 150 },
     { src: omgBanana, top: 1275, left: 20, width: 170 },
     { src: donutThinkRight, top: 1400, left: 45, width: 130 },
-    { src: donutWave, top: 1550, left: 70, width: 150 }
+    { src: donutWaveLeft, top: 1550, left: 70, width: 140 }
   ];
 
   let greeting = "Welcome! My name is Big O. To get started click on my dopplegangers to learn more about Big O Notation.";
