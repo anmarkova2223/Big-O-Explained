@@ -241,7 +241,7 @@
         </div>
       {/if}
       {#if index === 8}
-        <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 11}%;`}>
+        <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 12}%;`}>
           Don't be dramatic. It's time for <i>quadratics</i>!
         </div>
       {/if}
