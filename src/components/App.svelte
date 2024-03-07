@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, tick } from 'svelte';
   import {draw} from 'svelte/transition'
 
 
@@ -9,6 +9,7 @@
   // import { plotComplexities } from './cheatSheet.js';
   import { drawPath } from './path.js';
   let root;
+  let donutElements = [];
 
   import donutWave from '../lib/donut-wave.png';
   import donutWaveLeft from '../lib/donut-wave-left.png';
@@ -83,28 +84,52 @@
     { x: 700, y: 1000 }
     // Add more points as needed
   ];
-  function generatePathString(pathData) {
-    let path = [
-      {M: "600 200"},
-      {c: "1.5 3.5 274 -11.5 350 100"},
-      {}
-    ]
-
-    return "M 600 200 c 1.5 3.5 274 -11.5 350 100" + 
-    "c -9.43 12.28 -289.58 4.73 -600.1 100" + 
-    "c 11.69 53.47 346.44 7.02 750.08 200" + 
-    "c .71 146.16 -100 -8.34 -770.97 200" +
-    "c 9.06 67.54 304.65 46.22 350.99 116.39";
-    //return "M" + pathData.map(point => `${point.x},${point.y}`).join(' ');
-  }
 
   onMount(() => {
 
     svgWidth = window.innerWidth;
-    svgHeight = window.outerHeight * 2;
+    // svgHeight = document.body.scrollHeight;
+    // console.log(svgHeight);
+
+    // Get all elements in the body
+    let elements = document.body.getElementsByTagName('*');
+
+    // Initialize maxBottom to 0
+    let maxBottom = 0;
+
+    // Loop through all elements
+    for (let i = 0; i < elements.length; i++) {
+      // Get the bounding rectangle of the current element
+      let rect = elements[i].getBoundingClientRect();
+
+      // If the bottom of this element is lower than maxBottom, update maxBottom
+      if (rect.bottom > maxBottom) {
+        maxBottom = rect.bottom;
+      }
+    }
+
+    // maxBottom is now the bottom position of the lowest element on the page
+    svgHeight = maxBottom;
+
     console.log(svgHeight);
 
+    // let curve_path = donutElements.map((element, index) => {
+    //   //console.log(donuts[index].width);
+    //   const x = element.offsetLeft + donuts[index].width/2;
+    //   const y = element.offsetTop + donuts[index].width/2;
+    //   return { x, y };
+    //   });
+
+    //   let totalLength = 0;
+    //     console.log("curve path", curve_path)
+    //   for (let i = 0; i < curve_path.length - 1; i++) {
+    //     let dx = curve_path[i+1].x - curve_path[i].x;
+    //     let dy = curve_path[i+1].y - curve_path[i].y;
+    //     totalLength += Math.sqrt(dx * dx + dy * dy);
+    //   }
+
     let totalLength = root.getTotalLength();
+    console.log("path length", totalLength);
     root.style.strokeDasharray = totalLength + ' ' + totalLength;
     root.style.strokeDashoffset = totalLength;
     root.getBoundingClientRect();
@@ -123,6 +148,49 @@
 
     //drawPath('#path-svg', pathData, svgWidth, svgHeight);
   });
+
+  function generatePathString(donuts) {
+    // console.log(donutElements);
+
+    // donuts.forEach((donut, index) => {
+    //   const element = document.getElementById(`donut-${index}`);
+    //   const x = element.offsetLeft;
+    //   const y = element.offsetTop;
+    //   console.log(`Donut ${index} is at x: ${x}, y: ${y}`);
+    // });
+
+    // let curve_path = donuts.map((donut, index) => {
+    //   const element = document.getElementById(`donut-${index}`);
+    //   const x = element.offsetLeft;
+    //   const y = element.offsetTop;
+    //   return { x, y };
+    // });
+    let curve_path = donutElements.map((element, index) => {
+      //console.log(donuts[index].width);
+      const x = element.offsetLeft + donuts[index].width/2;
+      const y = element.offsetTop + donuts[index].width/2;
+      return { x, y };
+    });
+
+    // let differences = curve_path.map((point, index) => {
+    //   if (index < curve_path.length - 1) {
+    //     const nextPoint = curve_path[index + 1];
+    //     const xDiff = nextPoint.x - point.x;
+    //     const yDiff = nextPoint.y - point.y;
+    //     return { xDiff, yDiff };
+    //   }
+    // }).filter(Boolean); // filter out undefined values
+    //console.log(curve_path); 
+    //       curve_path.map(point => `${point.x},${point.y}`).join('L '));
+    //let pathString = "M" + `${curve_path[0].x},${curve_path[0].y} ` + curve_path.slice(1).map(point => `L${point.x},${point.y}`).join(' ');
+
+    //return pathString;
+
+    return curve_path.map((point, index) => {
+        return `${index === 0 ? 'M' : 'L'} ${point.x} ${point.y}`;
+      }).join(' ');
+    //return "M" + curve_path.map(point => `${point.x},${point.y}`).join(' ');
+  }
   
 
   function handleDonutHover(index) {
@@ -308,21 +376,23 @@
       {/if}
       <!-- Add more conditions for other donuts if needed -->
     {/if}
-    <img class="donut"
-      src={src}
-      alt="Donut"
-      style={`top: ${top}px; left: ${left}%; width: ${width}px`}
-      on:mouseover={() => handleDonutHover(index)}
-      on:mouseout={() => handleDonutOut(index)}
-      on:click={() => handleDonutClick(index)}/>
+    <div id={`donut-${index}`} bind:this={donutElements[index]} class="donut" style={`top: ${top}px; left: ${left}%;`}>
+      <img class="donut"
+        src={src}
+        alt="Donut"
+        style={` width: ${width}px`}
+        on:mouseover={() => handleDonutHover(index)}
+        on:mouseout={() => handleDonutOut(index)}
+        on:click={() => handleDonutClick(index)}/>
+    </div>
   {/each}
 </div>
 
 <div>
   <svg id="path-svg" width={svgWidth} height={svgHeight}>
     <g>
-      <path bind:this={root} id="myPath" transition:draw={{ duration: 1500 }}
-        d={generatePathString(pathData)}
+      <path bind:this={root} id="myPath" transition:draw={{ duration: 0 }}
+        d={generatePathString(donuts)}
         fill="none"
         stroke="black"
         stroke-width="5px"
