@@ -75,6 +75,16 @@
     border-color: transparent transparent transparent #CCCCCC;
     transform: rotate(90deg);
   }
+
+  :global(.katex) {
+      font-size: inherit; /* Make KaTeX font size same as the regular text */
+    }
+
+  :global(.katex-display) {
+      font-size: inherit; /* Adjust font size for KaTeX display mode */
+  }
+
+  
 </style>
 
 <div class="main-container">

@@ -4,6 +4,7 @@
 
 
   import { goto } from '$app/navigation';
+  import cheatsheet from './cheatsheet.js';
 
   // import { funTable } from './funTable.js'
   // import { plotComplexities } from './cheatSheet.js';

@@ -42,18 +42,26 @@
         text-align: left; /* Ensure code is left-aligned */
     }
 
+    :global(.katex) {
+        font-size: inherit; /* Make KaTeX font size same as the regular text */
+    }
+
+    :global(.katex-display) {
+        font-size: inherit; /* Adjust font size for KaTeX display mode */
+    }
+
 </style>
 
 <main class="container">
     <h1 style="text-align: center;">Linear Time</h1>
 
     <p>An algorithm is said to have a linear time complexity when the running time increases linearly with the length of the input.</p>
-    <p>When the function involves checking all the values in input data, with this order O(n).</p>
+    <p>When the function involves checking all the values in input data, with this order <Katex>O(n)</Katex>.</p>
     <p>In other words, the run time will linearly increase based on the length of the input.</p>
 
     <h2 style="text-align: center;">Examples</h2>
 
-    <p>The time complexity of any command or method that involves checking the length of a list, tuple, string, or any python object is O(n).</p>
+    <p>The time complexity of any command or method that involves checking the length of a list, tuple, string, or any python object is <Katex>O(n)</Katex>.</p>
     <p>This is because under the hood, python is going through every element in the list (for example) and counting how many elements there are. Therefore, the larger the size of the list, the longer it will take to count the elements in it.</p>
     <pre>
         <code class="language-python">
@@ -67,7 +75,7 @@
         </code>
     </pre>
 
-    <p>Conditionals and methods that involve counting or summing elements will also take linear time = O(n).</p>
+    <p>Conditionals and methods that involve counting or summing elements will also take linear time <Katex>O(n)</Katex>.</p>
 
     <pre>
         <code class="language-python">

@@ -40,14 +40,22 @@
         text-align: left; /* Ensure code is left-aligned */
     }
 
+    :global(.katex) {
+        font-size: inherit; /* Make KaTeX font size same as the regular text */
+    }
+
+    :global(.katex-display) {
+        font-size: inherit; /* Adjust font size for KaTeX display mode */
+    }
+
 </style>
 
 <main class="container">
     <h1>Logarithmic Time</h1>
 
-    <p>when an algorithm has O(log n) running time, it means that as the input size grows, the number of operations grows very slowly.</p>
-    <p>log(n) increases only by a tiny amount as N increases. When N doubles, log(n) only increases by 1.</p>
-    <p>The most popular example of an algorithm that takes O(log n) is Binary Search.</p>
+    <p>when an algorithm has <Katex class="katex">O(log n)</Katex> running time, it means that as the input size grows, the number of operations grows very slowly.</p>
+    <p><Katex>log(n)</Katex> increases only by a tiny amount as <Katex>N</Katex>increases. When <Katex>N</Katex> doubles, <Katex>log(n)</Katex> only increases by 1.</p>
+    <p>The most popular example of an algorithm that takes <Katex>O(log n)</Katex> is Binary Search.</p>
 
     <h2>Examples</h2>
 

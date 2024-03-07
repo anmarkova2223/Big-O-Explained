@@ -2,6 +2,7 @@
 <script>
     console.log('Constant.svelte loaded');
 
+    //import cheatsheet from './cheatsheet.js';
     import donutHype from '../lib/donut-hype-eyes-open.png';
     import { goto } from '$app/navigation';
 
@@ -40,12 +41,20 @@
         text-align: left; /* Ensure code is left-aligned */
     }
 
+    :global(.katex) {
+        font-size: inherit; /* Make KaTeX font size same as the regular text */
+    }
+
+    :global(.katex-display) {
+        font-size: inherit; /* Adjust font size for KaTeX display mode */
+    }
+
 </style>
 
 <main class="container">
     <h1>Constant Time</h1>
     <p>The easiest and best time complexity!</p>
-    <p>When the algorithm is not dependent on the input size, it has constant time complexity. i.e., the runtime will always be the same regardless of the input size.</p>
+    <p>When the algorithm is not dependent on the input size, it has constant time complexity <Katex>O(1)</Katex>. i.e., the runtime will always be the same regardless of the input size.</p>
 
     <br>
 

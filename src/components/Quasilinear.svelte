@@ -39,13 +39,21 @@
         text-align: left; /* Ensure code is left-aligned */
     }
 
+    :global(.katex) {
+        font-size: inherit; /* Make KaTeX font size same as the regular text */
+    }
+
+    :global(.katex-display) {
+        font-size: inherit; /* Adjust font size for KaTeX display mode */
+    }
+
 </style>
 
 <main class="container">
     <h1 style="text-align: center;">Quasilinear Time</h1>
     <p>More complex than <Katex>O(n)</Katex>, but less complex than <Katex>O(n^2)</Katex>.</p>
     <h2 style="text-align: center;">Examples:</h2>
-    <p>Some common algorithms that are <Katex>O(n log(n))</Katex> are merge sort, quicksort, and operations on a self-balancing binary search tree.</p>
+    <p>Some common algorithms that are <Katex>O(n \space \log(n))</Katex> are merge sort, quicksort, and operations on a self-balancing binary search tree.</p>
     <pre>
         <code class="language-python">
 def find_max_recursive(arr, start, end):

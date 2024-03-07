@@ -39,11 +39,19 @@
         text-align: left; /* Ensure code is left-aligned */
     }
 
+    :global(.katex) {
+        font-size: inherit; /* Make KaTeX font size same as the regular text */
+    }
+
+    :global(.katex-display) {
+        font-size: inherit; /* Adjust font size for KaTeX display mode */
+    }
+
 </style>
   
 <main class="container">
     <h1>Quadratic Time</h1>
-    <p>We classify Quadratic Time as horrible! This is because the complexity of polynomials increase as the exponent increases. They are very slow. The most common Quadratic Time talked about is O(n^2).</p>
+    <p>We classify Quadratic Time as horrible! This is because the complexity of polynomials increase as the exponent increases. They are very slow. The most common Quadratic Time talked about is <Katex>O(n^2)</Katex>.</p>
     <h2>Examples of Quadratic Time:</h2>
     <p>Some common algorithms that are in Quadratic time are bubble sort, selection sort, insertion sort, and matrix multiplication.</p>
     <pre>

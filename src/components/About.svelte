@@ -57,6 +57,15 @@
   li {
       margin-left: 20px; /* Adjust the space between bullet and text */
   }
+
+  :global(.katex) {
+        font-size: inherit; /* Make KaTeX font size same as the regular text */
+  }
+
+  :global(.katex-display) {
+        font-size: inherit; /* Adjust font size for KaTeX display mode */
+  }
+
 </style>
   
 <main class="container">
