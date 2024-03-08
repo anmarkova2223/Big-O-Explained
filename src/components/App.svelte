@@ -4,7 +4,7 @@
 
 
   import { goto } from '$app/navigation';
-  import cheatsheet from './cheatsheet.js';
+  // import cheatsheet from './cheatsheet.js';
 
   // import { funTable } from './funTable.js'
   // import { plotComplexities } from './cheatSheet.js';
@@ -304,6 +304,13 @@
   <h1>Big O Notation Explained</h1>
 </div>
 
+<div class="label" style="top:{225 + 120}px; left:{61.5}%">
+  {donutTexts[1]}
+</div>  
+<div class="label" style="top:{325 + 140}px; left:{20 + 3}%">
+  {donutTexts[2]}
+</div> 
+
 <div>
   {#each donuts as { src, top, left, width, hovered, clicked }, index}
     {#if index === 0}
@@ -320,10 +327,7 @@
       {#if index === 2}
         <div class="speech-bubble" style={`top: ${top + 40}px; left: ${left + 11}%;`}>
           Let's learn how to calculate Big O!
-        </div>
-        <div class="label" style="top:{top + 140}px; left:{left + 3}%">
-          {donutTexts[index]}
-        </div>     
+        </div>  
       {/if}
       {#if index === 3}
         <div class="speech-bubble" style={`top: ${top + 50}px; left: ${left + 13}%;`}>
