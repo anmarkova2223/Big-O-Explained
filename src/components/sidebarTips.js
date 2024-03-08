@@ -79,7 +79,7 @@ export function plotComplexities(targetElementId, title) {
 
     // Label for color meanings
     const colorLegendGroup = svg.append("g")
-        .attr("transform", `translate(${innerWidth + margin.left + 19}, ${margin.top + 16})`); // Adjusted positioning
+        .attr("transform", `translate(${innerWidth + margin.left + 14}, ${margin.top + 22})`); // Adjusted positioning
 
     const colorData = [
         { color: "#CC0000", text: "Horrible" },
