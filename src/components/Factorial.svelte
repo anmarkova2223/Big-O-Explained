@@ -14,6 +14,11 @@
     console.log("Back to homepage!")
     goto('homepage');
   }
+
+  function backButton(){
+    console.log("Back to homepage!")
+    goto('homepage');
+  }
 </script>
 
 <style>
@@ -51,6 +56,10 @@
     }
 
 </style>
+
+<div>
+    <button on:click={backButton}>Go Back to Homepage</button>
+  </div>
 
 <main class="container">
     <h1 style="text-align: center;">Factorial Time</h1>

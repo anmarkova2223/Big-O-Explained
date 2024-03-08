@@ -37,24 +37,7 @@
   import nlognDonut from '../lib/nlogn-donut.png';
   import constantDonut from '../lib/constant-donut.png';
 
-  let donuts = [
-    { src: donutWave, top: 100, left: 35, width: 150 },
-    { src: donutThinkRight, top: 225, left: 60, width: 130 },
-    { src: donutHypeClosed, top: 325, left: 20, width: 150 },
-    { src: graphDonut, top: 425, left: 45, width: 180 },
-    { src: constantDonut, top: 525, left: 70, width: 180 },
-    { src: logDonut, top: 650, left: 45, width: 180 },
-    { src: linearDonut, top: 775, left: 20, width: 180 },
-    { src: nlognDonut, top: 900, left: 46, width: 180 },
-    { src: quadraticDonut, top: 1025, left: 70, width: 180 },
-    { src: exponentialDonut, top: 1150, left: 45, width: 180 },
-    { src: factorialDonut, top: 1275, left: 20, width: 180 },
-    { src: donutThinkRight, top: 1400, left: 45, width: 130 },
-    { src: donutWaveLeft, top: 1550, left: 70, width: 140 }
-  ];
-
   let donutTexts = [
-    "",
     "Explanation",
     "The How",
     "Graph & Table",
@@ -68,6 +51,22 @@
     "Practice",
     "Sources"
   ]
+
+  let donuts = [
+    { src: donutWave, label: "", top: 100, left: 35, width: 150 },
+    { src: donutThinkRight, label: donutTexts[0], top: 225, left: 60, width: 130 },
+    { src: donutHypeClosed, label: donutTexts[1], top: 325, left: 20, width: 150 },
+    { src: graphDonut, label: donutTexts[2],top: 425, left: 45, width: 180 },
+    { src: constantDonut, label: donutTexts[3],top: 525, left: 70, width: 180 },
+    { src: logDonut, label: donutTexts[4],top: 650, left: 45, width: 180 },
+    { src: linearDonut, label: donutTexts[5],top: 775, left: 20, width: 180 },
+    { src: nlognDonut, label: donutTexts[6],top: 900, left: 46, width: 180 },
+    { src: quadraticDonut, label: donutTexts[7],top: 1025, left: 70, width: 180 },
+    { src: exponentialDonut,label: donutTexts[8], top: 1150, left: 45, width: 180 },
+    { src: factorialDonut,label: donutTexts[9], top: 1275, left: 20, width: 180 },
+    { src: donutThinkRight,label: donutTexts[10], top: 1400, left: 45, width: 130 },
+    { src: donutWaveLeft,label: donutTexts[11], top: 1550, left: 70, width: 140 }
+  ];
 
   let greeting = "Welcome! My name is Big O. To get started click on my dopplegangers to learn more about Big O Notation.";
   
@@ -261,6 +260,25 @@
     padding: 10px;
   }
 
+  .donut-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+  }
+
+  .label_norm {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 150px; /* Adjust the margin as needed */
+  }
+
+  .label_short {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 125px; /* Adjust the margin as needed */
+  }
+
   .donut {
     height: auto;
     margin-bottom: 50px;
@@ -287,10 +305,6 @@
     border-color: transparent transparent transparent #CCCCCC
   }
 
-  .label {
-    position: absolute;
-  }
-
   .arc-text {
     font-size: 14px;
   }
@@ -304,15 +318,8 @@
   <h1>Big O Notation Explained</h1>
 </div>
 
-<div class="label" style="top:{225 + 120}px; left:{61.5}%">
-  {donutTexts[1]}
-</div>  
-<div class="label" style="top:{325 + 140}px; left:{20 + 3}%">
-  {donutTexts[2]}
-</div> 
-
 <div>
-  {#each donuts as { src, top, left, width, hovered, clicked }, index}
+  {#each donuts as { src, label, top, left, width, hovered, clicked }, index}
     {#if index === 0}
         <div class="speech-bubble" style={`top: ${top + 30}px; left: ${left + 11}%;`}>
           Welcome! My name is Big O. Follow the path and click my dopplegangers to learn about Big O!
@@ -381,16 +388,25 @@
       {/if}
       <!-- Add more conditions for other donuts if needed -->
     {/if}
-    <div id={`donut-${index}`} bind:this={donutElements[index]} class="donut" style={`top: ${top}px; left: ${left}%;`}>
-      <img class="donut"
-        src={src}
-        alt="Donut"
-        style={` width: ${width}px`}
-        on:mouseover={() => handleDonutHover(index)}
-        on:mouseout={() => handleDonutOut(index)}
-        on:click={() => handleDonutClick(index)}/>
-    </div>
   {/each}
+
+  {#each donuts as { src, label, top, left, width, hovered, clicked }, index}
+  <div class="donut-container" style={`top: ${top}px; left: ${left}%;`}>
+    <img class="donut"
+      src={src}
+      alt="Donut"
+      style={`width: ${width}px`}
+      on:mouseover={() => handleDonutHover(index)}
+      on:mouseout={() => handleDonutOut(index)}
+      on:click={() => handleDonutClick(index)}
+    />
+    {#if index === 1 || index === 11 || index === 12}
+      <div class="label_short">{label}</div>
+    {:else}
+      <div class="label_norm">{label}</div>
+    {/if}
+  </div>
+{/each}
 </div>
 
 <div>

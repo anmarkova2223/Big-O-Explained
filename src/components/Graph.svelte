@@ -17,6 +17,11 @@
       plotComplexities("big-o-graph", "Big O Complexity Visualization", "Try hovering over the lines!");
       funTable("fun-table");
   });
+
+  function backButton(){
+    console.log("Back to homepage!")
+    goto('homepage');
+  }
 </script>
 
 <style>
@@ -86,6 +91,10 @@
 
   
 </style>
+
+<!-- <div>
+  <button on:click={backButton}>Go Back to Homepage</button>
+</div> -->
 
 <div class="main-container">
   <div id="big-o-graph">

@@ -11,6 +11,11 @@
     console.log("Back to homepage!")
     goto('homepage');
   }
+
+  function backButton(){
+    console.log("Back to homepage!")
+    goto('homepage');
+  }
 </script>
 
 <style>
@@ -89,3 +94,7 @@ for element1 in arr1:
     <p style="text-align: center;">Great work! Click on the donut to go back to the home page!</p>
     <img src={donutThinkRight} alt="Donut Image" style="width: 150px;" on:click={handleDonutClick}>
 </main>
+
+<div>
+    <button on:click={backButton}>Go Back to Homepage</button>
+  </div>

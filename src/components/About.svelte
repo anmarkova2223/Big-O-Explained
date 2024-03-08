@@ -12,6 +12,11 @@
     goto('homepage');
   }
 
+  function backButton(){
+    console.log("Back to homepage!")
+    goto('homepage');
+  }
+
   console.log('About.svelte loaded');
 </script>
 
@@ -67,6 +72,10 @@
   }
 
 </style>
+
+<div>
+  <button on:click={backButton}>Go Back to Homepage</button>
+</div>
   
 <main class="container">
     <h1>What is Big O Notation?</h1>

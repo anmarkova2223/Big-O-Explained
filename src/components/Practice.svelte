@@ -11,6 +11,11 @@
       console.log("Back to homepage!")
       goto('homepage');
     }
+
+    function backButton(){
+    console.log("Back to homepage!")
+    goto('homepage');
+  }
   
     console.log('Sources.svelte loaded');
   </script>
@@ -59,6 +64,9 @@
     }
   </style>
     
+    <div>
+      <button on:click={backButton}>Go Back to Homepage</button>
+    </div>
   <main class="container">
       <h1>Practice Problems</h1>
       <p style="text-align: center;">Great work! Click on the donut to go back to the home page!</p>
