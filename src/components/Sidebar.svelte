@@ -2,6 +2,8 @@
 <script>
   import { fly } from 'svelte/transition';
   import Modal from './Modal.svelte';
+  import { plotComplexities } from './sidebarTips.js';
+  import { onMount } from 'svelte';
 
   export let show = false;
   let modal_show = false;
@@ -9,6 +11,12 @@
   function toggleSidebar() {
     show = !show;
   }
+
+  onMount(() => {
+    if (show) {
+      plotComplexities("sidebar-content", "Big O Visualization"); // Adjust parameters as needed
+    }
+  });
 </script>
 
 <style>
@@ -41,11 +49,15 @@
     /* Add your button styles here */
     transform: translateX(var(--button-translate)) rotate(-90deg);
   }
+
+  #sidebar-content {
+    padding: 20px;
+  }
 </style>
 
 <div class="sidebar-container" on:click={toggleSidebar} style="right: {show ? '0' : '-20rem'}">
   <nav transition:fly={{x: 250, opacity: 1}}>
-    Text
+    <div id="sidebar-content"></div>
   </nav>
   <Modal bind:show={modal_show} />
 </div>
