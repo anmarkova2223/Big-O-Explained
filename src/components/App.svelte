@@ -50,7 +50,7 @@
     { src: exponentialDonut, top: 1150, left: 45, width: 180 },
     { src: factorialDonut, top: 1275, left: 20, width: 180 },
     { src: donutThinkRight, top: 1400, left: 45, width: 130 },
-    { src: donutWaveLeft, top: 1550, left: 70, width: 140 }
+    { src: donutWaveLeft, top: 1525, left: 70, width: 140 }
   ];
 
   let donutTexts = [
