@@ -9,6 +9,9 @@
     console.log("Back to homepage!")
     goto('homepage');
   }
+
+  import Sidebar from './Sidebar.svelte';
+    let sidebar_show = false;
 </script>
 
 <style>
@@ -38,6 +41,8 @@
     }
 
 </style>
+
+<Sidebar bind:show={sidebar_show} />
 
 <main class="container">
     <h1>Constant Time</h1>
