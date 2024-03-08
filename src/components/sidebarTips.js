@@ -329,6 +329,6 @@ export function plotComplexities(targetElementId, title) {
         .attr("transform", `translate(${margin.left + innerWidth / 2},${margin.top - 30})`)
         .style("text-anchor", "middle")
         .style("font-weight", "bold")
-        .style("font-size", "12px")
+        .style("font-size", "15px")
         .text(title);
 }

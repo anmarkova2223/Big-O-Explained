@@ -58,6 +58,10 @@
 <div class="sidebar-container" on:click={toggleSidebar} style="right: {show ? '0' : '-20rem'}">
   <nav transition:fly={{x: 250, opacity: 1}}>
     <div id="sidebar-content"></div>
+    <div class="graph-text" style="margin-top: -80px; text-align: center; font-size: 13px;">
+        <h4 style="font-size: 15px;">Rules to Big O Notation</h4>
+        
+      </div>
   </nav>
   <Modal bind:show={modal_show} />
 </div>

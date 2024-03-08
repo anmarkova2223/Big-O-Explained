@@ -10,7 +10,7 @@
     goto('homepage');
   }
 
-  import Sidebar from './Sidebar.svelte';
+    import Sidebar from './Sidebar.svelte';
     let sidebar_show = false;
 </script>
 
