@@ -74,10 +74,17 @@
     <div id="sidebar-content"></div>
     <div class="graph-text" style="margin-top: -80px; text-align: left; font-size: 13px;padding: 20px;">
       <h4 style="font-size: 15px;">Rules to Big O Notation</h4>
-      <li>We say <Katex>n</Katex> is approaching infinity because we want to see how algorithms scale. This means that constants do not matter when calculating Big O.</li>
-      <ul>
-        <li>For example: If you have <Katex>O(3 + 5n + n^2 + 6n^2)</Katex> then the Big O Notation is <Katex>O(n^2)</Katex>. In general we ignore the constants. If you did look at constants we know <Katex>6n^2</Katex> will take the longest, but when we ignore the coefficient it becomes <Katex>O(n^2)</Katex>.</li>
-      </ul>
+      <ol>
+        <li>Break your algorithm/code into individual operations.</li>
+        <li>Calculate the Big O of each operation.</li>
+        <li>Add up the Big O of each operation together or multiply with caution.</li>
+        <li>Remove constants. Recall we only care about the slowest part of the algorithm/code.</li>
+        <li>Find the highest order term (AKA the operation that takes the most time).</li>
+      </ol>
+      <br>
+      <h4 style="font-size: 15px;">Things to Keep in Mind</h4>
+      <li>We care about <Katex>n</Katex> as it gets bigger and bigger. So assume it is approaching infinity.</li>
+      <li>Sometimes it is OK to multiply different Big O's together for an algorithm. Always double check to make sure it is appropriate. (If they are loops do any of them end early?)</li>
     </div>
   </nav>
   <Modal />

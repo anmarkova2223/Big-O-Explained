@@ -70,6 +70,14 @@
   <main class="container">
       <h1>Big O Notation Tips</h1>
       <h2>Big O Notation Rules:</h2>
+      <ol>
+        <li>Break your algorithm/code into individual operations.</li>
+        <li>Calculate the Big O of each operation.</li>
+        <li>Add up the Big O of each operation together or multiply with caution.</li>
+        <li>Remove constants.</li>
+        <li>Find the highest order term.</li>
+      </ol>
+      <h2>Things to Keep in Mind</h2>
       <ul>
         <li>Big O for the algorithm is the portion that takes the longest time (is the slowest).</li>
         <li>If your algorithm has multiple sections to it that utilize <Katex>n</Katex> that are not nested together then you add the functions.</li>
