@@ -49,6 +49,6 @@
       <p>Rowell, Eric. <a href="https://www.bigocheatsheet.com/">Know Thy Complexities!</a> Big-O Algorithms, 2016</p>
       <p>"Web Safe Color Chart." <a href="https://htmlcolorcodes.com/color-chart/web-safe-color-chart/">HTML Color Codes</a>, htmlcolorcodes.com. Accessed 28 Feb. 2024.</p>
       
-      <p style="text-align: center;">Click on the donut to go back to the home page!</p>
+      <h3 style="text-align: center;">Click on the donut to go back to the home page!</h3>
       <img src={donutWaveLeft} alt="Donut Image" style="width: 150px;display: block; margin-left: auto; margin-right: auto;" on:click={handleDonutClick}>
 </main>
