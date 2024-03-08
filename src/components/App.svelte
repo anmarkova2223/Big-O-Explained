@@ -67,23 +67,9 @@
     { src: donutThinkRight,label: donutTexts[10], top: 1400, left: 45, width: 130 },
     { src: donutWaveLeft,label: donutTexts[11], top: 1550, left: 70, width: 140 }
   ];
-
-  let greeting = "Welcome! My name is Big O. To get started click on my dopplegangers to learn more about Big O Notation.";
   
   let svgWidth;
   let svgHeight;
-
-  let pathData = [
-    { x: 600, y: 200 },
-    { x: 900, y: 300 },
-    { x: 350, y: 450 },
-    { x: 700, y: 500 },
-    { x: 1050, y: 600 },
-    { x: 700, y: 750 },
-    { x: 350, y: 850 },
-    { x: 700, y: 1000 }
-    // Add more points as needed
-  ];
 
   onMount(() => {
 
