@@ -26,16 +26,6 @@
       height: 100%; /* Ensure the container takes up the full height */
     }
   
-    /* Adjust the pre element styles if needed */
-    pre {
-        margin: 0;
-        padding: 5px;
-        background-color: #f4f4f4;
-        border-radius: 5px;
-        overflow-x: auto;
-        display: flex;
-        justify-content: center;
-    }
   </style>
     
   <main class="container">
