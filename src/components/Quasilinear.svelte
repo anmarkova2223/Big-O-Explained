@@ -11,7 +11,12 @@
   }
 
     console.log('Quasilinear.svelte loaded');
+
+    import Sidebar from './Sidebar.svelte';
+    let sidebar_show = false;
 </script>
+
+<Sidebar bind:show={sidebar_show} />
 
 <style>
   .container {
