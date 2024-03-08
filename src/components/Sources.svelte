@@ -64,12 +64,11 @@
     }
   </style>
     
+<div>
+  <button on:click={backButton}>Go Back to Homepage</button>
+</div>
   <main class="container">
       <h1>Sources</h1>
       <p style="text-align: center;">Great work! Click on the donut to go back to the home page!</p>
       <img src={donutWaveLeft} alt="Donut Image" style="width: 150px;display: block; margin-left: auto; margin-right: auto;" on:click={handleDonutClick}>
 </main>
-
-<div>
-  <button on:click={backButton}>Go Back to Homepage</button>
-</div>
