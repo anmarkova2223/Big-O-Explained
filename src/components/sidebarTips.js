@@ -1,11 +1,12 @@
 import * as d3 from "d3";
 
 export function plotComplexities(targetElementId, title) {
+
     const targetDiv = document.getElementById(targetElementId);
 
     // Define SVG container dimensions
-    const containerWidth = 300; // New width (1/3 of original)
-    const containerHeight = 233; // New height (1/3 of original)
+    const containerWidth = 300; // New width
+    const containerHeight = 250; // New height
 
     // Update SVG container dimensions
     const svg = d3.select(targetDiv)
@@ -14,9 +15,9 @@ export function plotComplexities(targetElementId, title) {
         .attr("height", containerHeight);
 
     // Keep inner dimensions unchanged
-    const width = 266; // Inner width (1/3 of original)
-    const height = 200; // Inner height (1/3 of original)
-    const margin = { top: 42.67, right: 16.67, bottom: 16.67, left: 33.33 }; // Adjusted margins for 1/3 size
+    const width = 250; // Inner width
+    const height = 200; // Inner height
+    const margin = { top: 42, right: 17, bottom: 17, left: 34 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
@@ -29,7 +30,7 @@ export function plotComplexities(targetElementId, title) {
         .attr("width", innerWidth)
         .attr("height", innerHeight);
 
-    const plotSize = 9.33; // Adjusted plot size for 1/3 size
+    const plotSize = 28;
 
     const xScale = d3.scaleLinear()
         .domain([0, plotSize])
@@ -57,17 +58,17 @@ export function plotComplexities(targetElementId, title) {
 
     // X Axis Label
     svg.append("text")
-        .attr("transform", `translate(${margin.left + innerWidth / 2},${innerHeight + margin.top + 13.33})`) // Adjusted positioning for 1/3 size
+        .attr("transform", `translate(${margin.left + innerWidth / 2},${innerHeight + margin.top + 15})`)
         .style("text-anchor", "middle")
         .text("Elements")
-        .attr("font-size", "10px"); // Adjusted font size for 1/3 size
+        .attr("font-size", "13px"); // Adjusted font size for 1/3 size
 
     // Y Axis Label
     svg.append("text")
-        .attr("transform", `translate(${margin.left - 10},${margin.top + innerHeight / 2}) rotate(-90)`) // Adjusted positioning for 1/3 size
+        .attr("transform", `translate(${margin.left - 14},${margin.top + innerHeight / 2}) rotate(-90)`)
         .style("text-anchor", "middle")
         .text("Operations")
-        .attr("font-size", "10px"); // Adjusted font size for 1/3 size
+        .attr("font-size", "13px"); // Adjusted font size for 1/3 size
 
     // Define clipping path
     svg.append("defs").append("clipPath")
@@ -78,7 +79,7 @@ export function plotComplexities(targetElementId, title) {
 
     // Label for color meanings
     const colorLegendGroup = svg.append("g")
-        .attr("transform", `translate(${innerWidth + margin.left + 18.33}, ${margin.top + 16.67})`); // Adjusted positioning for 1/3 size
+        .attr("transform", `translate(${innerWidth + margin.left + 19}, ${margin.top + 16})`); // Adjusted positioning
 
     const colorData = [
         { color: "#CC0000", text: "Horrible" },
@@ -90,21 +91,21 @@ export function plotComplexities(targetElementId, title) {
     const legendItems = colorLegendGroup.selectAll("g")
         .data(colorData)
         .enter().append("g")
-        .attr("transform", (d, i) => `translate(0, ${i * 10})`); // Adjusted positioning for 1/3 size
+        .attr("transform", (d, i) => `translate(0, ${i * 12})`); // Adjusted spacing
 
     legendItems.append("rect")
         .attr("x", 0)
         .attr("y", 0)
-        .attr("width", 6.67) // Adjusted width for 1/3 size
-        .attr("height", 6.67) // Adjusted height for 1/3 size
+        .attr("width", 10) // Adjusted width for 1/3 size
+        .attr("height", 10) // Adjusted height for 1/3 size
         .attr("fill", d => d.color);
 
     legendItems.append("text")
-        .attr("x", 8.33) // Adjusted x position for 1/3 size
-        .attr("y", 5) // Adjusted y position for 1/3 size
+        .attr("x", 14) // Adjusted x position for 1/3 size
+        .attr("y", 7) // Adjusted y position for 1/3 size
         .text(d => d.text)
         .attr("fill", "black")
-        .attr("font-size", "5.33px"); // Adjusted font size for 1/3 size
+        .attr("font-size", "10px"); // Adjusted font size for 1/3 size
 
     // O(1) line
     const o1Line = g.append("line")
@@ -113,30 +114,30 @@ export function plotComplexities(targetElementId, title) {
         .attr("x2", xScale(plotSize))
         .attr("y2", yScale(1))
         .attr("stroke", "#6699FF")
-        .attr("stroke-width", 1.33)
+        .attr("stroke-width", 1)
         .attr("clip-path", "url(#clip)");
 
     const o1LabelRect = g.append("rect")
-        .attr("x", xScale(plotSize) + 2)
-        .attr("y", yScale(1) - 4) // Adjusted y position for 1/3 size
-        .attr("width", 13.33) // Adjusted width for 1/3 size
-        .attr("height", 6.67) // Adjusted height for 1/3 size
+        .attr("x", xScale(plotSize) + 1)
+        .attr("y", 128) // Adjusted y position for 1/3 size
+        .attr("width", 22) // Adjusted width for 1/3 size
+        .attr("height", 13) // Adjusted height for 1/3 size
         .attr("fill", "#6699FF")
         .attr("opacity", 0); // Initially invisible
 
     const o1Label = g.append("text")
-        .attr("x", xScale(plotSize) + 3.33) // Adjusted x position for 1/3 size
-        .attr("y", yScale(1) + 2.67) // Adjusted y position for 1/3 size
+        .attr("x", xScale(plotSize) + 1.67) // Adjusted x position for 1/3 size
+        .attr("y", yScale(1) + 2) // Adjusted y position for 1/3 size
         .text("O(1)")
         .attr("fill", "black")
-        .attr("font-size", "4px"); // Adjusted font size for 1/3 size
+        .attr("font-size", "10px"); // Adjusted font size for 1/3 size
 
     // O(log n) line
     const oLogNLine = g.append("path")
         .datum(d3.range(1, plotSize + 1))
         .attr("fill", "none")
         .attr("stroke", "#6699FF")
-        .attr("stroke-width", 1.33)
+        .attr("stroke-width", 1)
         .attr("d", d3.line()
             .x(d => xScale(d))
             .y(d => yScale(Math.log(d)))
@@ -144,19 +145,19 @@ export function plotComplexities(targetElementId, title) {
         .attr("clip-path", "url(#clip)");
 
     const oLogNLabelRect = g.append("rect")
-        .attr("x", xScale(plotSize) + 2)
-        .attr("y", yScale(Math.log(plotSize)) - 4) // Adjusted y position for 1/3 size
-        .attr("width", 20) // Adjusted width for 1/3 size
-        .attr("height", 6.67) // Adjusted height for 1/3 size
+        .attr("x", xScale(plotSize) + 1)
+        .attr("y", 117) // Adjusted y position for 1/3 size
+        .attr("width", 38) // Adjusted width for 1/3 size
+        .attr("height", 13) // Adjusted height for 1/3 size
         .attr("fill", "#6699FF")
         .attr("opacity", 0); // Initially invisible
 
     const oLogNLabel = g.append("text")
-        .attr("x", xScale(plotSize) + 3.33) // Adjusted x position for 1/3 size
-        .attr("y", yScale(Math.log(plotSize)) + 2.67) // Adjusted y position for 1/3 size
+        .attr("x", xScale(plotSize) + 1.67) // Adjusted x position for 1/3 size
+        .attr("y", yScale(Math.log(plotSize)) + 2) // Adjusted y position for 1/3 size
         .text("O(log n)")
         .attr("fill", "black")
-        .attr("font-size", "4px"); // Adjusted font size for 1/3 size
+        .attr("font-size", "10px"); // Adjusted font size for 1/3 size
 
     // O(n) line
     const oNLine = g.append("line")
@@ -165,30 +166,30 @@ export function plotComplexities(targetElementId, title) {
         .attr("x2", xScale(plotSize))
         .attr("y2", yScale(plotSize))
         .attr("stroke", "#FFCC00")
-        .attr("stroke-width", 1.33)
+        .attr("stroke-width", 1)
         .attr("clip-path", "url(#clip)");
 
     const oNLabelRect = g.append("rect")
-        .attr("x", xScale(plotSize) + 2)
-        .attr("y", yScale(plotSize) - 8) // Adjusted y position for 1/3 size
+        .attr("x", xScale(plotSize) + 1)
+        .attr("y", -16) // Adjusted y position for 1/3 size
         .attr("width", 20) // Adjusted width for 1/3 size
-        .attr("height", 6.67) // Adjusted height for 1/3 size
+        .attr("height", 13) // Adjusted height for 1/3 size
         .attr("fill", "#FFCC00")
         .attr("opacity", 0); // Initially invisible
 
     const oNLabel = g.append("text")
-        .attr("x", xScale(plotSize) + 3.33) // Adjusted x position for 1/3 size
-        .attr("y", yScale(plotSize) - 2.67) // Adjusted y position for 1/3 size
+        .attr("x", xScale(plotSize) + 1.67) // Adjusted x position for 1/3 size
+        .attr("y", -6) // Adjusted y position for 1/3 size
         .text("O(n)")
         .attr("fill", "black")
-        .attr("font-size", "4px"); // Adjusted font size for 1/3 size
+        .attr("font-size", "10px"); // Adjusted font size for 1/3 size
 
     // O(n log n) line
     const oNLogNLine = g.append("path")
         .datum(d3.range(1, plotSize + 1))
         .attr("fill", "none")
         .attr("stroke", "#FF6600")
-        .attr("stroke-width", 1.33)
+        .attr("stroke-width", 1)
         .attr("d", d3.line()
             .x(d => xScale(d))
             .y(d => yScale(d * Math.log(d)))
@@ -196,26 +197,26 @@ export function plotComplexities(targetElementId, title) {
         .attr("clip-path", "url(#clip)");
 
     const oNLogNLabelRect = g.append("rect")
-        .attr("x", 88.67)
-        .attr("y", -6.67)
-        .attr("width", 26.67) // Adjusted width for 1/3 size
-        .attr("height", 6.67) // Adjusted height for 1/3 size
+        .attr("x", 85)
+        .attr("y", -16) // Adjusted y position for 1/3 size
+        .attr("width", 50) // Adjusted width for 1/3 size
+        .attr("height", 13) // Adjusted height for 1/3 size
         .attr("fill", "#FF6600")
         .attr("opacity", 0); // Initially invisible
 
     const oNLogNLabel = g.append("text")
-        .attr("x", 90)
-        .attr("y", -2) // Adjusted y position for 1/3 size
+        .attr("x", 90) // Adjusted x position for 1/3 size
+        .attr("y", -6) // Adjusted y position for 1/3 size
         .text("O(n log n)")
         .attr("fill", "black")
-        .attr("font-size", "4px"); // Adjusted font size for 1/3 size
+        .attr("font-size", "10px"); // Adjusted font size for 1/3 size
 
     // O(n^2) line
     const oNSquaredLine = g.append("path")
         .datum(d3.range(0, plotSize + 1))
         .attr("fill", "none")
         .attr("stroke", "#CC0000")
-        .attr("stroke-width", 1.33)
+        .attr("stroke-width", 1)
         .attr("d", d3.line()
             .x(d => xScale(d))
             .y(d => yScale(d ** 2))
@@ -224,26 +225,26 @@ export function plotComplexities(targetElementId, title) {
         .attr("clip-path", "url(#clip)");
 
     const oNSquaredLabelRect = g.append("rect")
-        .attr("x", 66.67)
-        .attr("y", -6.67)
-        .attr("width", 20) // Adjusted width for 1/3 size
-        .attr("height", 6.67) // Adjusted height for 1/3 size
+        .attr("x", 55)
+        .attr("y", -16) // Adjusted y position for 1/3 size
+        .attr("width", 32) // Adjusted width for 1/3 size
+        .attr("height", 13) // Adjusted height for 1/3 size
         .attr("fill", "#CC0000")
         .attr("opacity", 0); // Initially invisible
 
     const oNSquaredLabel = g.append("text")
-        .attr("x", 68.67)
-        .attr("y", -2) // Adjusted y position for 1/3 size
+        .attr("x", 57) // Adjusted x position for 1/3 size
+        .attr("y", -6) // Adjusted y position for 1/3 size
         .text("O(n^2)")
         .attr("fill", "black")
-        .attr("font-size", "4px"); // Adjusted font size for 1/3 size
+        .attr("font-size", "10px"); // Adjusted font size for 1/3 size
 
     // O(2^n) line
     const oTwoNLine = g.append("path")
         .datum(d3.range(0, plotSize + 1))
         .attr("fill", "none")
         .attr("stroke", "#CC0000")
-        .attr("stroke-width", 1.33)
+        .attr("stroke-width", 1)
         .attr("d", d3.line()
             .x(d => xScale(d))
             .y(d => yScale(2 ** d))
@@ -252,26 +253,26 @@ export function plotComplexities(targetElementId, title) {
         .attr("clip-path", "url(#clip)");
 
     const oTwoNLabelRect = g.append("rect")
-        .attr("x", 44)
-        .attr("y", -6.67)
-        .attr("width", 20) // Adjusted width for 1/3 size
-        .attr("height", 6.67) // Adjusted height for 1/3 size
+        .attr("x", 24)
+        .attr("y", -16) // Adjusted y position for 1/3 size
+        .attr("width", 33) // Adjusted width for 1/3 size
+        .attr("height", 13) // Adjusted height for 1/3 size
         .attr("fill", "#CC0000")
         .attr("opacity", 0); // Initially invisible
 
     const oTwoNLabel = g.append("text")
-        .attr("x", 46)
-        .attr("y", -2) // Adjusted y position for 1/3 size
+        .attr("x", 26) // Adjusted x position for 1/3 size
+        .attr("y", -6) // Adjusted y position for 1/3 size
         .text("O(2^n)")
         .attr("fill", "black")
-        .attr("font-size", "4px"); // Adjusted font size for 1/3 size
+        .attr("font-size", "10px"); // Adjusted font size for 1/3 size
 
     // O(n!) line
     const oNFactorialLine = g.append("path")
         .datum(d3.range(0, 7))
         .attr("fill", "none")
         .attr("stroke", "#CC0000")
-        .attr("stroke-width", 1.33)
+        .attr("stroke-width", 1)
         .attr("d", d3.line()
             .x(d => xScale(d))
             .y(d => yScale(factorial(d)))
@@ -280,19 +281,19 @@ export function plotComplexities(targetElementId, title) {
         .attr("clip-path", "url(#clip)");
 
     const oNFactorialLabelRect = g.append("rect")
-        .attr("x", 22.67)
-        .attr("y", -6.67)
-        .attr("width", 20) // Adjusted width for 1/3 size
-        .attr("height", 6.67) // Adjusted height for 1/3 size
+        .attr("x", -2)
+        .attr("y", -16) // Adjusted y position for 1/3 size
+        .attr("width", 27) // Adjusted width for 1/3 size
+        .attr("height", 13) // Adjusted height for 1/3 size
         .attr("fill", "#CC0000")
         .attr("opacity", 0); // Initially invisible
 
     const oNFactorialLabel = g.append("text")
-        .attr("x", 24.67)
-        .attr("y", -2) // Adjusted y position for 1/3 size
+        .attr("x", 0) // Adjusted x position for 1/3 size
+        .attr("y", - 6) // Adjusted y position for 1/3 size
         .text("O(n!)")
         .attr("fill", "black")
-        .attr("font-size", "4px"); // Adjusted font size for 1/3 size
+        .attr("font-size", "10px"); // Adjusted font size for 1/3 size
 
     // Helper function for factorial
     function factorial(n) {
@@ -316,7 +317,7 @@ export function plotComplexities(targetElementId, title) {
         });
 
         line.on('mouseleave', () => {
-            line.attr('stroke-width', 1.33).attr('stroke', colors[index]);
+            line.attr('stroke-width', 1).attr('stroke', colors[index]);
             labelRect.attr('opacity', 0);
             label.attr('fill', 'black');
         });
@@ -325,9 +326,9 @@ export function plotComplexities(targetElementId, title) {
     // Append title
     svg.append("text")
         .attr("class", "title")
-        .attr("transform", `translate(${margin.left + innerWidth / 2},${margin.top - 28.67})`) // Adjusted positioning for 1/3 size
+        .attr("transform", `translate(${margin.left + innerWidth / 2},${margin.top - 30})`)
         .style("text-anchor", "middle")
         .style("font-weight", "bold")
-        .style("font-size", "10px") // Adjusted font size for 1/3 size
+        .style("font-size", "12px")
         .text(title);
 }
