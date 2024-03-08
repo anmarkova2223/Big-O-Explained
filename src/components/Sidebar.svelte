@@ -3,6 +3,8 @@
   import Modal from './Modal.svelte';
   import { plotComplexities } from './sidebarTips.js';
   import { onMount } from 'svelte';
+  import Katex from 'svelte-katex';
+  import 'katex/dist/katex.min.css'; //having this is what makes the math format nicely
 
   export let show = false;
   let modal_show = false;
@@ -70,8 +72,12 @@
 <div class="sidebar-container" style="right: {show ? '0' : '-20rem'}">
   <nav transition:fly={{x: 250, opacity: 1}}>
     <div id="sidebar-content"></div>
-    <div class="graph-text" style="margin-top: -80px; text-align: center; font-size: 13px;">
+    <div class="graph-text" style="margin-top: -80px; text-align: left; font-size: 13px;padding: 20px;">
       <h4 style="font-size: 15px;">Rules to Big O Notation</h4>
+      <li>We say <Katex>n</Katex> is approaching infinity because we want to see how algorithms scale. This means that constants do not matter when calculating Big O.</li>
+      <ul>
+        <li>For example: If you have <Katex>O(3 + 5n + n^2 + 6n^2)</Katex> then the Big O Notation is <Katex>O(n^2)</Katex>. In general we ignore the constants. If you did look at constants we know <Katex>6n^2</Katex> will take the longest, but when we ignore the coefficient it becomes <Katex>O(n^2)</Katex>.</li>
+      </ul>
     </div>
   </nav>
   <Modal />
