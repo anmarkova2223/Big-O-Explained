@@ -16,15 +16,15 @@
   </script>
   
   <style>
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-      padding: 0 40px;
-      height: 100%; /* Ensure the container takes up the full height */
-    }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 100px;
+    height: 100%; /* Ensure the container takes up the full height */
+  }
   
     /* Adjust the pre element styles if needed */
     pre {
