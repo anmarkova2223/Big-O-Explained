@@ -2,7 +2,6 @@
 <script>
   import { fly } from 'svelte/transition';
   import Modal from './Modal.svelte';
-  import CheatSheet from './cheatSheet.js';
 
   export let show = false;
   let modal_show = false;
@@ -52,5 +51,5 @@
 </div>
 
 <div class="button-container" style="--button-translate: {show ? '0' : '20rem'}">
-  <button on:click={toggleSidebar}>Click For Tips!</button>
+  <button on:click={toggleSidebar}>Click For Tips</button>
 </div>
