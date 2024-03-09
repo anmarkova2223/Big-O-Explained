@@ -159,6 +159,8 @@ def exponential(n):
         <li>We see that the number of <code>exponential(0)</code> seems to double each time! This means we can say the general equation for this problem is <Katex>2^n</Katex>. This means that the time complexity is <Katex>O(n^2)</Katex>.</li>
       </ul>
     </ol>
+    <br>
+    <p>As you can see exponential time is quite slow. You want to avoid creating algorithms that run in this time, as very little data will take a long time.</p>
     <p style="text-align: center;">Great work! Click on the donut to go back to the home page!</p>
     <img src={donutHypeClosed} alt="Donut Image" style="width: 150px;display: block; margin-left: auto; margin-right: auto;" on:click={handleDonutClick}>
 </main>
