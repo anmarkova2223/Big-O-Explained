@@ -70,18 +70,6 @@
     transform: translateY(-50%);
   }
 
-  .speech-bubble::before {
-    content: '';
-    position: absolute;
-    top: 150%;
-    left: 46%;
-    margin-top: -10px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent transparent transparent #CCCCCC;
-    transform: rotate(90deg);
-  }
-
   ul {
         list-style-type: disc; /* Set the bullet style */
         text-align: left;
@@ -106,8 +94,8 @@
     <h1 style="text-align: center;">Exponential Time</h1>
     <p>Now you might be wondering, "Big O" exponential time cannot be that bad. I think you're being a bit dramatic... it can't be that different from quadratics!"</p>
     <div class = "donut-container" style = "margin-top: 10">
-    <img src={donutThink} alt="Donut Image" style="width: 100px; margin-top: 60px;">
-      <div class="speech-bubble" style={`top: 20px;`}> 
+    <img src={donutThink} alt="Donut Image" style="width: 100px; margin-top: 70px;">
+      <div class="speech-bubble" style={`top: 30px;`}> 
         <!-- adjust style as needed for placement -->
       Bet. Let's look at an example.
       </div>
