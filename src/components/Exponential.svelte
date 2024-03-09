@@ -82,23 +82,41 @@
     transform: rotate(90deg);
   }
 
+  ul {
+        list-style-type: disc; /* Set the bullet style */
+        text-align: left;
+        padding-left: 0; /* Remove default padding */
+    }
+  
+    ul ul {
+          list-style-type: circle; /* Change the bullet style for the nested list */
+          text-align: left;
+          margin-top: 5px; /* Adjust the spacing between the parent and nested lists */
+          margin-left: 40px;
+      }
+  
+    li {
+        text-align: left;
+        margin-left: 20px; /* Adjust the space between bullet and text */
+    }
+
 </style>
 
 <main class="container">
     <h1 style="text-align: center;">Exponential Time</h1>
     <p>Now you might be wondering, "Big O" exponential time cannot be that bad. I think you're being a bit dramatic... it can't be that different from quadratics!"</p>
-    <div class = "donut-container">
-    <img src={donutThink} alt="Donut Image" style="width: 150px;">
-      <div class="speech-bubble" style={`top: 10%; left: 23%;`}> 
+    <div class = "donut-container" style = "margin-top: 10">
+    <img src={donutThink} alt="Donut Image" style="width: 100px; margin-top: 60px;">
+      <div class="speech-bubble" style={`top: 20px;`}> 
         <!-- adjust style as needed for placement -->
       Bet. Let's look at an example.
       </div>
     </div>
     <p>Imagine Big O is trying to solve the Towers of Hanoi problem. This problem involves moving a stack of disks from one rod to another. However, a larger disk cannot be placed on top of a smaller one! Big O knows he can solve this problem using recursion, but the number of moves required to solve it grows exponentially with the number of disks. The equation for this problem is: <Katex>2^n-1</Katex>, where <Katex>n</Katex> is the number of disks.</p>
     <p>Since we know that the time complexity of the Towers of Hanoi problem is <Katex>O(n^2)</Katex> we can do some calculations! Let's assume that each move takes Big O 1 microsecond (1 millionth of a second).</p>
-    <p>Let's imagine we have 20 disks we have to move. This is a pretty small number compared to infinity, where we say <Katex>n</Katex> is approaching. We would get: <Katex>2^20 - 1 = 1048575 moves</Katex>.</p>
-    <p>We then multiply the number of moves by 1 microsecond. <Katex>1048575 moves * 1/10^6 seconds/move = 1.05 seconds</Katex>. That's not so bad! How about if we had 30 disks?</p>
-    <p><Katex>2^30 - 1 = 1073741823 moves</Katex>, which takes <Katex>1073741823 moves * 1/10^6 seconds/move = 1073741.82 seconds</Katex></p>
+    <p>Let's imagine we have 20 disks we have to move. This is a pretty small number compared to infinity, where we say <Katex>n</Katex> is approaching. We would get: <Katex>2**20 - 1 = 1048575</Katex> moves.</p>
+    <p>We then multiply the number of moves by 1 microsecond. <Katex>1048575</Katex> moves <Katex>* 1/10^6</Katex> seconds/move <Katex>= 1.05</Katex> seconds. That's not so bad! How about if we had 30 disks?</p>
+    <p><Katex>2**30 - 1 = 1073741823</Katex> moves, which takes <Katex>1073741823</Katex> moves <Katex>* 1/10^6</Katex> seconds/move <Katex>= 1073741.82</Katex> seconds</p>
     <p>Wait a minute... that's about 12.4 days! Oh no!</p>
     <br>
     <p>Now you might be saying: "Big O, what about negative exponentials?" That would be a very smart question, so Big O would say: "What a great observation! As long as coefficients are positive multiples of <Katex>n</Katex> then the exponentials have a greater time complexity."</p>
