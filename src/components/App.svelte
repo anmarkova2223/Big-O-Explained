@@ -4,7 +4,11 @@
 
 
   import { goto } from '$app/navigation';
+<<<<<<< Updated upstream
   // import cheatsheet from './cheatsheet.js';
+=======
+  //import cheatsheet from './cheatsheet.js';
+>>>>>>> Stashed changes
 
   // import { funTable } from './funTable.js'
   // import { plotComplexities } from './cheatSheet.js';
@@ -172,6 +176,7 @@
       const y = element.offsetTop + donuts[index].width/2;
       return { x, y };
     });
+    console.log(curve_path);
 
     // let differences = curve_path.map((point, index) => {
     //   if (index < curve_path.length - 1) {
@@ -396,8 +401,8 @@
 <div>
   <svg id="path-svg" width={svgWidth} height={svgHeight}>
     <g>
-      <path bind:this={root} id="myPath" transition:draw={{ duration: 0 }}
-        d={generatePathString(donuts)}
+      <path bind:this={root} id="myPath"
+        d="M 579 175 L 929 290 L 363 400 L 738 515 L 1098 615 L 738 740 L 378 865 L 752 990 L 1098 1115 L 738 1240 L 378 1365 L 713 1465 L 1078 1620"
         fill="none"
         stroke="black"
         stroke-width="5px"
